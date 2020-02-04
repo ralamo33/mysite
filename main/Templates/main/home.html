@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <header role = "banner">
-        <h1> Ryan's Programming Projects</h1>
-        <h2> Seekers</h2>
-    </header>
-
-    <article>
-        <section>
-            <p>Generate and manipulate a grid and use various search algorithms to find the targets. </p>
-        </section>
-    </article>
+{% extends "main/header.html" %}
+    {% block content %}
     {% for pro in projects %}
-        <header>
-            <h2>{{pro.project_title}}</h2>
-        </header>
         <article>
             <section>
-                <p>{{pro.project_description}}</p>
                 <p>{{pro.project_published}}</p>
+                <p>{{pro.project_description}}</p>
+                <a href={{pro.project_link}}>Check out the project</a>
+                <br>
+                <img src="{{ pro.project_image.url }}" />
+                <br>
+                <a href={{pro.project_github}}>GitHub Repository</a>
             </section>
         </article>
     {% endfor %}
-</body>
-</html>
-
+    {% endblock %}

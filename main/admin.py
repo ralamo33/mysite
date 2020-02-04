@@ -7,10 +7,8 @@ from tinymce.widgets import TinyMCE
 
 class ProjectAdmin(admin.ModelAdmin):
     fieldsets = [("title/date", {"fields": ["project_title", "project_published"]}),
-                 ("content", {"fields": ["project_description", "project_code"]})]
-
-    formfield_overrides = {
-        models.TextField: {'widget': TinyMCE()}
-    }
+                 ("content", {"fields": ["project_description", "project_link"]}),
+                 ("image", {"fields": ["project_image"]}),
+                 ("github", {"fields": ["project_github"]})]
 
 admin.site.register(Project, ProjectAdmin)
