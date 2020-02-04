@@ -2,6 +2,9 @@
     {% block content %}
     {% for pro in projects %}
         <article>
+            <header>
+                <h2>{{pro.project_title}}</h2>
+            </header>
             <section>
                 <p>{{pro.project_published}}</p>
                 <p>{{pro.project_description}}</p>
@@ -10,6 +13,7 @@
                 <img src="{{ pro.project_image.url }}" />
                 <br>
                 <a href={{pro.project_github}}>GitHub Repository</a>
+                <br>
             </section>
         </article>
     {% endfor %}
