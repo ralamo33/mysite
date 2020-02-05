@@ -1,18 +1,20 @@
 {% extends "main/header.html" %}
     {% block content %}
+    <header class="page_title">
+        <h2>Personal Projects</h2>
+    </header>
     {% for pro in projects %}
         <article>
-            <header>
-                <h2>{{pro.project_title}}</h2>
+            <header class="project_title">
+                <h3>{{pro.project_title}}</h3>
             </header>
             <section>
-                <p>{{pro.project_published}}</p>
-                <p>{{pro.project_description}}</p>
-                <a href={{pro.project_link}}>Check out the project</a>
+                <p class="project_description">{{pro.project_description}}</p>
+                <a href={{pro.project_link}} class="project_link left-align">Check out the project</a>
+                <a href={{pro.project_github}} class="project_link right-align">GitHub Repository</a>
                 <br>
-                <img src="{{ pro.project_image.url }}" />
+                <img src="{{ pro.project_image.url }}" class="project_image"/>
                 <br>
-                <a href={{pro.project_github}}>GitHub Repository</a>
                 <br>
             </section>
         </article>

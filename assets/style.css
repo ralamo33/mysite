@@ -1,9 +1,42 @@
-body {
-  background-color: black;
+.banner {
+    background-color: red;
+    border-style: solid;
+    border-width: medium;
+    border-color: white;
 }
-h1 {
-  color: white;
+
+.page {
+
 }
-p {
-  color: yellow;
+
+.left-align {
+    margin-left: %10;
+}
+
+.right-align {
+    margin-right: %90;
+}
+
+.page_title {
+    text-align: center;
+    color: white
+}
+
+.project_title {
+    text-align: center
+    color: gold
+}
+
+.project_description{
+    text-align: center;
+}
+
+.project_link {
+}
+
+.project_image {}
+
+.content {
+    background-color: black;
+    color: blue
 }
