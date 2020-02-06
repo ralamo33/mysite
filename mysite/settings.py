@@ -26,7 +26,7 @@ SECRET_KEY = '#z_c_k+@90@j*i-d*45%*ymbx*3iy%+xoqcryzrt0$d&qeq8&@'
 DEBUG = True
 
 ALLOWED_HOSTS = ["ralamo33.pythonanywhere.com",
-                 "127.0.0.1",]
+                 "127.0.0.1"]
 
 
 # Application definition
