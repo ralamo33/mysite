@@ -1,16 +1,21 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
     </head>
    <body>
-    <header role = "banner">
-        <h1> Ryan's Programming Projects</h1>
+    <header role = "banner" class="banner">
+        <h1> Remember the Alamo!</h1>
+        <button href="" class="page left-align"><h3>>Home</h3></button>
+        <button href="" class="page right-align"><h3>About Me</h3></button>
     </header>
-    <article>
-        {% block content %}
-        {% endblock %}
-    </article>
+            <script></script>
+    <div class="content">
+        <article>
+            {% block content %}
+            {% endblock %}
+        </article>
+    </div>
 </body>
 </html>
