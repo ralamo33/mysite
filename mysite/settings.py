@@ -25,7 +25,7 @@ SECRET_KEY = '#z_c_k+@90@j*i-d*45%*ymbx*3iy%+xoqcryzrt0$d&qeq8&@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["ralamo33.pythonanywhere.com",]
 
 
 # Application definition
@@ -59,7 +59,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'main/Templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +71,8 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'main/Templates')
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
