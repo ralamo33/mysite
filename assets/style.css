@@ -1,12 +1,5 @@
-.banner {
-    background-color: red;
-    border-style: solid;
-    border-width: medium;
-    border-color: white;
-}
-
-.page {
-
+body {
+    font-size: 100%
 }
 
 .left-align {
@@ -17,26 +10,48 @@
     margin-right: %90;
 }
 
-.page_title {
+.banner {
     text-align: center;
-    color: white
+    color: gold;
+    background: black;
+    text-align: center;
+}
+
+.page_title {
+    font-size: 1.5em;
+    color: gold;
+    border: gold double medium;
+    border-top: none;
+    background: black;
+    text-align: center;
 }
 
 .project_title {
-    text-align: center
-    color: gold
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    background: dodgerblue;
+    border-top: black outset medium;
+}
+
+.content {
+    background-color: dodgerblue;
 }
 
 .project_description{
     text-align: center;
+    color: white
 }
 
-.project_link {
+.git_link {
+    font-style: italics;
+    margin-left: 50%;
 }
 
-.project_image {}
-
-.content {
-    background-color: black;
-    color: blue
+.project_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: auto;
+    max-height: auto;
 }
