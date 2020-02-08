@@ -12,6 +12,10 @@ def homepage(request):
                   template_name="main/home.html",
                   context={"projects": Project.objects.all})
 
+def aboutme(request):
+    return render(request,
+                  template_name="main/aboutme.html")
+
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
