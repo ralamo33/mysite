@@ -145,11 +145,16 @@ Designed for the About Me page.
 }
 
 /* Hide the text explaining each skill.*/
-.skill span {
+.hidden {
     display: none;
+    font-style: italic;
 }
 
-.skill:hover span {
+.skill:hover {
+    border-bottom: 1px solid black;
+}
+
+.skill:hover .hidden {
     display: inline;
 }
 
