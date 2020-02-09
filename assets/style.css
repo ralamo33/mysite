@@ -1,6 +1,32 @@
 /*
 Designed for header.html
 */
+header {
+    text-align: center;
+    color: gold;
+    background: black;
+    text-align: center;
+}
+
+.nav_bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav_item {
+    float: left;
+}
+
+.nav_item a {
+    display: block;
+    color: yellow;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+}
 
 /*
 Designed for the home/personal_project page.
@@ -18,12 +44,7 @@ body {
     margin-right: %90;
 }
 
-.banner {
-    text-align: center;
-    color: gold;
-    background: black;
-    text-align: center;
-}
+
 
 
 .project_title {
@@ -62,6 +83,10 @@ body {
 /*
 Designed for the register page.
 */
+
+body {
+    margin: 0;
+}
 
 .register {
     color: #FEFEFE;
