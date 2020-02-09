@@ -1,3 +1,11 @@
+/*
+Designed for header.html
+*/
+
+/*
+Designed for the home/personal_project page.
+*/
+
 body {
     font-size: 100%
 }
@@ -17,14 +25,6 @@ body {
     text-align: center;
 }
 
-.page_title {
-    font-size: 1.5em;
-    color: gold;
-    border: gold double medium;
-    border-top: none;
-    background: black;
-    text-align: center;
-}
 
 .project_title {
     font-size: 1.5em;
@@ -32,10 +32,12 @@ body {
     color: white;
     background: dodgerblue;
     border-top: black outset medium;
+    margin: 0;
 }
 
 .content {
     background-color: dodgerblue;
+    margin: 0;
 }
 
 .project_description{
@@ -45,7 +47,9 @@ body {
 
 .git_link {
     font-style: italics;
-    margin-left: 50%;
+    margin: auto;
+    border: none;
+    position: relative;
 }
 
 .project_image {
@@ -54,4 +58,49 @@ body {
     margin-right: auto;
     max-width: auto;
     max-height: auto;
+}
+/*
+Designed for the register page.
+*/
+
+.register {
+    color: #FEFEFE;
+    background-color: dodgerblue;
+    margin: 0;
+}
+
+.btn {
+    margin-left: 20px;
+    border: solid 1px black;
+}
+
+/*
+Designed for the About Me page.
+*/
+
+.about_me {
+    color: #FEFEFE;
+    margin: 0;
+}
+
+.about_me h2 {
+    text-align: center;
+    font-style: "Times New Roman";
+    font-size: 1.5em;
+ }
+
+.inline_image {
+    max-width: 50px;
+    max-height: 50px;
+    display: inline;
+}
+
+
+.inline_image:hover {
+    max-width: 50%;
+    max-height: 100%;
+    border: solid large gold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

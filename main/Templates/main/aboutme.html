@@ -3,11 +3,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello!</title>
-    HI!
+    <title>About Me</title>
 </head>
-<body>
-
+<body class="about_me">
+    <header class="project_title">
+    <h2>My Name is Ryan Alamo</h2>
+    </header>
+    {% load static %}
+    <p class="page_description">
+        I am a third year computer science student at Northeastern University. I had not touched programming until
+        I tried a fundementals course in the summer of Freshman year. I fell in love instantly
+        <img class ="inline_image" src="{% static 'heart.png' %}">
+        and switched my degree next semester.
+        <br>
+        My courses have taught me the foundations of CS. Online tutorials and personal projects have taught me specific
+        languages and frameworks.
+    </p>
+    <h3>Best Skills</h3>
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Logic</li>
+            <li>Motivated to Learn</li>
+        </ul>
+    <h3>Other Skills</h3>
+        <ul>
+            <li>Powershell</li>
+            <li>Django</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Writing</li>
+            <li>Team Player</li>
+        </ul>
+    <h3>Next Skills</h3>
+        <ul>
+            <li>Java Script</li>
+            <li>Haskell</li>
+            <li>Corporate Programming</li>
+        </ul>
+    
+    
+    <h3>Hobbies and Interests</h3>
+        <h4>History</h4>
+            <p>
+                I have always been fascinated by the stories of our past. The sheer variety of cultures and socities
+                is amazing. If catastrophe wipes out the Internet Age I would try my hand as a history professor.
+                <br>
+                <a>Dan Carlin's Hardcore History Podcast</a> is my favorite historical storytelling.
+                <br>
+                <a>The History of the World in Eight Glasses</a> demonstrates that simple products can change the world.
+            </p>
+        <h4>Reading</h4>
+            <p>
+                When I was little I used to try and sneak books into family dinners. There is still something magical
+                about opening a book, turning its page, and entering another world. Science Fiction, Fantasy and History
+                are my favorite genres. I like immersing myself in a different place and time. When I want to learn something
+                well, I buy the book for it.
+                <ol>
+                    <p>Top five books.</p>
+                    <li>Stormlight Archive</li>
+                    <li>Brave New World</li>
+                    <li>Starship Troopers</li>
+                    <li>Fight Club</li>
+                    <li>The Black Company</li>
+                </ol>
+            </p>
+        <h4>Boardgames</h4>
+            <p>
+                Nothing strains friendships more than playing a good board game. Maybe its the intrigue and betrayal,
+                the stategic decision making, or childhood Monopoly memories but I cannot get enough of that stuff.
+            </p>
 </body>
 </html>
 {% endblock %}
