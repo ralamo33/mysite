@@ -107,6 +107,54 @@ body {
 /*
 Designed for the About Me page.
 */
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.column {
+    float: left;
+    width: 33%;
+    border: 1px solid black;
+}
+
+.column h3 {
+    text-align: center;
+}
+
+.column li {
+    list-style-type: circle;
+    list-style-image: url('tiny_wolf.jpg');
+    list-style-image-width: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responds in case the screen is small.*/
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+/* Hide the text explaining each skill.*/
+.skill span {
+    display: none;
+}
+
+.skill:hover span {
+    display: inline;
+}
+
+/*Reveal the text explaining each skill.*/
+
 
 .about_me {
     color: #FEFEFE;
