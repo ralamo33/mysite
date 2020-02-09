@@ -1,6 +1,7 @@
 {% extends "main/header.html" %}
     {% block content %}
     {% for pro in projects %}
+    <body class="about_me">
         <article>
             <header class="project_title">
                 <h3>{{pro.project_title}}</h3>
@@ -14,5 +15,6 @@
                 <br>
             </section>
         </article>
+    </body>
     {% endfor %}
     {% endblock %}
