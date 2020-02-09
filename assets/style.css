@@ -148,6 +148,7 @@ Designed for the About Me page.
 .hidden {
     display: none;
     font-style: italic;
+    color: gold;
 }
 
 .skill:hover {
@@ -156,6 +157,7 @@ Designed for the About Me page.
 
 .skill:hover .hidden {
     display: inline;
+    color: gold;
 }
 
 /*Reveal the text explaining each skill.*/
@@ -166,11 +168,38 @@ Designed for the About Me page.
     margin: 0;
 }
 
+.about_me h3 {
+    margin: 10px;
+}
+
+.about_me h4 {
+    margin: 20px;
+}
+
+.about_me p {
+    margin: 30px;
+}
+
+.history_link {
+    color: yellow;
+    font-style: underline;
+}
+
+.list_header {
+    font-style: italic;
+    margin-left: 0px;
+}
+
 .about_me h2 {
     text-align: center;
     font-style: "Times New Roman";
     font-size: 1.5em;
  }
+
+.book_list {
+    margin: 40px;
+    margin-top: 0px;
+}
 
 .inline_image {
     max-width: 50px;
@@ -186,4 +215,23 @@ Designed for the About Me page.
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+#profile_pic {
+    float: left;
+    display: inline;
+    margin: auto;
+    max-width: 390px;
+    max-height: 390px;
+}
+
+#dungeons_and_dragons {
+    display: inline;
+    max-width: 390px;
+    max-height: 390px;
+    margin: auto;
 }

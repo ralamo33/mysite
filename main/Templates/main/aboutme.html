@@ -13,7 +13,6 @@
     <p class="page_description">
         I am a third year computer science student at Northeastern University. I had not touched programming until
         I tried a fundementals course in the summer of Freshman year. I fell in love instantly
-        <img class ="inline_image" src="{% static 'heart.png' %}">
         and switched my degree next semester.
         My courses have taught me the foundations of CS. Online tutorials and personal projects have taught me specific
         languages and frameworks.
@@ -39,26 +38,40 @@
                         University taught me Java and the fundamentals, I did the rest. </span>
                 </li>
                 <li class="skill">Writing
-                    <span class="hidden"><br></span>
+                    <span class="hidden"><br>I have been head of public relations for two campus clubs, and have been
+                    published in the Sinai Scholars Academic Journal.</span>
                 </li>
             </ul>
         </div>
         <div class="column">
         <h3>Other Skills</h3>
             <ul>
-                <li class="skill">Powershell</li>
-                <li class="skill">Django</li>
-                <li class="skill">HTML</li>
-                <li class="skill">CSS</li>
-                <li class="skill">Team Player</li>
+                <li class="skill">Powershell
+                    <span class="hidden"><br>I created Powershell scripts to automate report processing.
+                        I made changes to a corporate database, generated emails and excel documents, and displayed popup
+                        reminders to persons with expired passwords.</span></li>
+                <li class="skill">Django
+                    <span class="hidden"><br>I used to Django to build this website!</span></li>
+                <li class="skill">HTML
+                    <span class="hidden"><br>This hidden span (and the rest of the website) was created with a combination of html and css!</span></li>
+                <li class="skill">CSS
+                    <span class="hidden"><br>This hidden span (and the rest of the website) was created with a combination of html and css!</span></li>
+                <li class="skill">Team Player
+                    <span class="hidden"><br>Freshman year I worked with a team for an Americorps program for four year olds.
+                    Only through team work, planning and helping each other did we keep control of the class.</span></li>
             </ul>
         </div>
         <div class="column">
         <h3>Next Skills</h3>
             <ul>
-                <li class="skill">Java Script</li>
-                <li class="skill">Haskell</li>
-                <li class="skill">Professional Programming</li>
+                <li class="skill">Java Script
+                    <span class="hidden"><br>I want to get a full understanding of web design.</span></li>
+                <li class="skill">Haskell
+                    <span class="hidden"><br>There is an intriguing elegance to functional programming. I want to have a
+                    good command of one functional language.</span></li>
+                <li class="skill">Professional Programming
+                    <span class="hidden"><br>As of yet, my programming experience has been personal and academic.
+                    I want to learn how a professional programmer operates.</span></li>
                 <br>
                 <br>
             </ul>
@@ -69,8 +82,10 @@
             <p>
                 I have always been fascinated by the stories of our past. The sheer variety of cultures and socities
                 is amazing. If catastrophe wipes out the Internet Age I would try my hand as a history professor.
-                <a>Dan Carlin's Hardcore History Podcast</a> is my favorite historical storytelling.
-                <a>The History of the World in Eight Glasses</a> demonstrates that simple products can change the world.
+                <br>
+                <a class="history_link" target="_blank" href="https://www.dancarlin.com/hardcore-history-series/">Dan Carlin's Hardcore History Podcast</a> is my favorite historical storytelling.
+                <br>
+                <a class="history_link" target="_blank" href="https://books.google.co.uk/books/about/A_History_of_the_World_in_Six_Glasses.html?id=-0t1nFKe0ZgC&redir_esc=y">The History of the World in Eight Glasses</a> demonstrates that simple products can change the world.
             </p>
         <h4>Reading</h4>
             <p>
@@ -78,20 +93,23 @@
                 about opening a book, turning its page, and entering another world. Science Fiction, Fantasy and History
                 are my favorite genres. I like immersing myself in a different place and time. When I want to learn something
                 well, I buy the book for it.
-                <ol>
-                    <p>Top five books.</p>
-                    <li>Stormlight Archive</li>
-                    <li>Brave New World</li>
-                    <li>Starship Troopers</li>
-                    <li>Fight Club</li>
-                    <li>The Black Company</li>
+                <br>
+                <p class="list_header"> Top Five Books:</p>
+                <ol class="book_list">
+                    <li><a class="history_link" href="https://www.brandonsanderson.com/the-stormlight-archive-series/" target="_blank">Stormlight Archive</a></li>
+                    <li><a class="history_link" href="https://www.amazon.co.uk/s?k=aldous+huxley+a+brave+new+world&hvadid=80539258252880&hvbmt=be&hvdev=c&hvqmt=e&tag=mh0a9-21&ref=pd_sl_4xclo7n65g_e" target="_blank">Brave New World</a></li>
+                    <li><a class="history_link" href="https://starshiptroopers.fandom.com/wiki/Starship_Troopers_(novel)" target="_blank">Starship Troopers</a></li>
+                    <li><a class="history_link" href="https://www.barnesandnoble.com/w/fight-club-chuck-palahniuk/1100290786#/" target="_blank">Fight Club</a></li>
+                    <li><a class="history_link" href="https://tvtropes.org/pmwiki/pmwiki.php/Literature/TheBlackCompany" target="_blank">The Black Company</a></li>
                 </ol>
             </p>
         <h4>Boardgames</h4>
             <p>
-                Nothing strains friendships more than playing a good board game. Maybe its the intrigue and betrayal,
-                the stategic decision making, or childhood Monopoly memories but I cannot get enough of that stuff.
+                Chips, drinks and games are great day in my book. From Risk to Bloodborn I absolutely love boardgames
+                with good friends. Why make small talk when you could be Settling Catan?
             </p>
+            <img id="profile_pic" src="{% static 'ProfilePic.jfif' %}">
+            <a href="https://dnd.wizards.com/" target="_blank"><img src="{% static 'gaming_with_da_boys.png' %}" id="dungeons_and_dragons" ></a>
 </body>
 </html>
 {% endblock %}
