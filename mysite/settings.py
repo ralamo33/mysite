@@ -25,10 +25,7 @@ SECRET_KEY = '#z_c_k+@90@j*i-d*45%*ymbx*3iy%+xoqcryzrt0$d&qeq8&@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["ralamo33.pythonanywhere.com",
-                 "127.0.0.1",
-                 "https://secret-hamlet-17163.herokuapp.com/",
-                 "https://secret-hamlet-17163.herokuapp.com/"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
