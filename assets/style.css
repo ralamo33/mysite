@@ -73,9 +73,11 @@ body {
 
 .git_link {
     font-style: italics;
-    margin: auto;
     border: none;
-    position: relative;
+    color: gold;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 .project_image {
