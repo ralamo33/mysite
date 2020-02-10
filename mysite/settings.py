@@ -27,6 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["ralamo33.pythonanywhere.com",
                  "127.0.0.1",
+                 "https://secret-hamlet-17163.herokuapp.com/",
                  "https://secret-hamlet-17163.herokuapp.com/"]
 
 
