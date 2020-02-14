@@ -28,7 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['secret-hamlet-17163.herokuapp.com',
                  '127.0.0.1',
                  'https://remembertheralamo.herokuapp.com/',
-                 'http://www.remembertheralamo.com/']
+                 'www.remembertheralamo.com/',
+                 'remembertheralamo.herokuapp.com',
+                 'remembertheralamo.com/']
 
 
 # Application definition
