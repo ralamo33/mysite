@@ -26,7 +26,9 @@ SECRET_KEY = '#z_c_k+@90@j*i-d*45%*ymbx*3iy%+xoqcryzrt0$d&qeq8&@'
 DEBUG = True
 
 ALLOWED_HOSTS = ['secret-hamlet-17163.herokuapp.com',
-                 '127.0.0.1']
+                 '127.0.0.1',
+                 'https://remembertheralamo.herokuapp.com/',
+                 'http://www.remembertheralamo.com/']
 
 
 # Application definition
