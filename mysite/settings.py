@@ -30,7 +30,8 @@ ALLOWED_HOSTS = ['secret-hamlet-17163.herokuapp.com',
                  'https://remembertheralamo.herokuapp.com/',
                  'www.remembertheralamo.com/',
                  'remembertheralamo.herokuapp.com',
-                 'remembertheralamo.com/']
+                 'remembertheralamo.com/',
+                 'www.remembertheralamo.com',]
 
 
 # Application definition
