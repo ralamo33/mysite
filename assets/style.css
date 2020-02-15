@@ -232,10 +232,19 @@ Designed for the About Me page.
     float: left;
 }
 
+#bottom_text {
+    margin: 35px 30px 0px;
+    padding-bottom: 10px;
+}
 
-.about_me_pictures {
-    display: inline;
-    margin: auto;
-    max-width: 390px;
-    max-height: 390px;
+.bottom_pictures {
+    box-sizing: border-box;
+    max_width = 390px;
+    max_height = 390px;
+}
+
+.bottom_picture {
+    float: left;
+    width: 33%;
+    height: 33%;
 }
