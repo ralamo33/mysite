@@ -8,6 +8,11 @@ header {
     text-align: center;
 }
 
+h1 {
+    margin: 0px 0px 21px;
+    padding: 12px 0px 0px;
+}
+
 .nav_bar {
     list-style-type: none;
     margin: 0;
@@ -56,13 +61,13 @@ body {
     font-size: 1.5em;
     text-align: center;
     color: white;
-    background: dodgerblue;
+    background: #0000A1;
     border-top: black outset medium;
     margin: 0;
 }
 
 .content {
-    background-color: dodgerblue;
+    background-color: #0000A1;
     margin: 0;
 }
 
@@ -97,7 +102,7 @@ body {
 
 .register {
     color: #FEFEFE;
-    background-color: dodgerblue;
+    background-color: #0000A1;
     margin: 0;
 }
 
@@ -223,17 +228,14 @@ Designed for the About Me page.
     text-align: center;
 }
 
-#profile_pic {
+.float_left {
     float: left;
-    display: inline;
-    margin: auto;
-    max-width: 390px;
-    max-height: 390px;
 }
 
-#dungeons_and_dragons {
+
+.about_me_pictures {
     display: inline;
+    margin: auto;
     max-width: 390px;
     max-height: 390px;
-    margin: auto;
 }
