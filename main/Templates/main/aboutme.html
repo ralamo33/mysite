@@ -71,8 +71,8 @@
                     <span class="hidden"><br>There is an intriguing elegance to functional programming. I want to have a
                     good command of one functional language.</span></li>
                 <li class="skill">Professional Programming
-                    <span class="hidden"><br>As of yet, my programming experience has been personal and academic.
-                    I want to learn how a professional programmer operates.</span></li>
+                    <span class="hidden"><br>As of yet, my programming experience has mostly been personal and academic.
+                    I want to learn how to operate in a team of professional programmer operates.</span></li>
                 <br>
                 <br>
             </ul>
@@ -83,9 +83,7 @@
             <p>
                 I have always been fascinated by the stories of our past. The sheer variety of cultures and socities
                 is amazing. If catastrophe wipes out the Internet Age I would try my hand as a history professor.
-                <br>
                 <a class="history_link" target="_blank" href="https://www.dancarlin.com/hardcore-history-series/">Dan Carlin's Hardcore History Podcast</a> is my favorite historical storytelling.
-                <br>
                 <a class="history_link" target="_blank" href="https://books.google.co.uk/books/about/A_History_of_the_World_in_Six_Glasses.html?id=-0t1nFKe0ZgC&redir_esc=y">The History of the World in Eight Glasses</a> demonstrates that simple products can change the world.
             </p>
         <h4>Reading</h4>
@@ -105,13 +103,17 @@
                 </ol>
             </p>
         <h4>Boardgames</h4>
-            <p>
+            <p id="bottom_text">
                 Chips, drinks and games are great day in my book. From Risk to Bloodborn I absolutely love boardgames
                 with good friends. Why make small talk when you could be Settling Catan?
             </p>
-            <img id="profile_pic" src="{% static 'ProfilePic.jfif' %}">
-            <a href="https://dnd.wizards.com/" target="_blank">
-                <img src="{% static 'gaming_with_da_boys.png' %}" id="dungeons_and_dragons" alt="Games with the Boys!"></a>
+            <div class="bottom_pictures">
+                <img class="bottom_picture" src="{% static 'ProfilePic.jfif' %}">
+                <a href="https://dnd.wizards.com/" target="_blank">
+                    <img src="{% static 'gaming_with_da_boys.png' %}" class="bottom_picture" alt="Games with the Boys!">
+                </a>
+                <img class="bottom_picture" src="{% static 'IronThrone.jpg' %}" alt="On the Iron Throne">
+            </div>
 </body>
 </html>
 {% endblock %}
