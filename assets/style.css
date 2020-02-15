@@ -1,6 +1,11 @@
 /*
 Designed for header.html
 */
+
+* {
+   font-family: "Times New Roman", Times, serif;
+}
+
 header {
     text-align: center;
     color: gold;
