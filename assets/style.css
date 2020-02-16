@@ -1,4 +1,37 @@
 /*
+Designed for seeker.html
+*/
+:root {
+    --rowNum: 10;
+    --colNum: 5;
+    --gridHeight: 300px;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: repeat(var(--rowNum), var(--gridHeight));
+    grid-template-columns: repeat(var(--colNum), auto);
+}
+
+.seeker-bar {
+    list-style-type: none;
+    margin: auto;
+    overflow: hidden;
+    background-color: rgb(27, 6, 104);
+    color: red;
+}
+
+.seeker-item {
+    float: left;
+    text-align: center;
+    border-right: 2px solid white;
+    color: white;
+    font-size: 3vw;
+    width: 33%;    
+}
+
+
+/*
 Designed for header.html
 */
 
@@ -50,16 +83,6 @@ Designed for the home/personal_project page.
 body {
     font-size: 100%
 }
-
-.left-align {
-    margin-left: %10;
-}
-
-.right-align {
-    margin-right: %90;
-}
-
-
 
 
 .project_title {
