@@ -16,6 +16,10 @@ def aboutme(request):
     return render(request,
                   template_name="main/aboutme.html")
 
+def seeker(request):
+    return render(request,
+     template_name="main/seeker.html")
+
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
