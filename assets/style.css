@@ -8,8 +8,10 @@ Designed for seeker.html
 }
 
 .map {
+    /*
     grid-template-rows: repeat(var(--rowNum), var(--gridHeight));
-    grid-template-columns: repeat(var(--colNum), auto);
+    grid-template-columns: repeat(var(--colNum), auto);*/
+    display: grid;
     width: 100px;
     height: 100px;
     color: white;
