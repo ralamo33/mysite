@@ -18,7 +18,8 @@ Designed for seeker.html
     background-color: coral;
 }
 
-.map-item {
+.cell {
+    
     width: 100px;
     height: 100px;
     background-color: purple;

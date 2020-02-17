@@ -1,22 +1,26 @@
 let create = document.getElementById("work");
 let map = document.getElementById("map");
+let mapItems = [];
+createGraph(1, 1)
+
+function createGraph(rows, cols) {
+    let r = 0;
+    let c = 0;
+    for (r=0; r < rows; r++) {
+        for (c=0; c < cols; c++) {
+            makeMapItem("standard", false);
+            addCell();
+        }
+    }
+}
 
 function addCell() {
-    alert("Hey");
     let cell = document.createElement("div");
-    cell.classList.add("map-item");
+    cell.classList.add("cell");
     map.appendChild(cell);
 }
 
-
-create.addEventListeners("click", function(){
-    alert("Hello");
-    let cell = document.createElement("button");
-    cell.classList.add("map-item");
-    create.appendChild(cell);
-/*
-    let para = document.createElement("li");
-    let t = document.createTextNode("this is a paragraph");
-    para.appendChild(t);
-    document.getElementsById("run").appendChild(para);*/
-});
+function makeMapItem(type, visited) {
+    this.type = type;
+    this.visited = visited;
+}
