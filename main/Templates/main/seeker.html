@@ -3,45 +3,44 @@
 <body class="about_me">
     <div class="intro">
         <h3 id="seeker-title">Seeker!</h3>
-        <p class="intro-text">Seeker is a game where you can use different search algorithms to find the golden treasure.</p>
-        <div id="working-map">
-            <div class="working-cell">1</div>
-            <div class="working-cell" id="2">2</div>
-            <div class="working-cell" id="3">3</div>
-            <div class="working-cell" id="4">4</div>
-        </div>
+        <p class="intro-text">Seeker is a game where you can use different search algorithms to find the <span class="golden">GOLDEN</span> treasure.</p>
         <div class="instructions">
-            <p class="intro-text">Click here for instructions.</p>
-            <p class="hidden-text">Greetings seeker! You are creating a map to find buried treasure. First design your map, then choose
-                a search algoirthm to find your treasure!
-                <ul class="instruction-list">
-                    <li class="instruction-item">
-                        <h4 class="instruction-header">Run</h4>
-                        <br>
-                        <p class=intro-text>Click run to apply the selected search algorithm on the current treasure map.</p>
-                    </li>
-                    <li class="instruction-item">
-                        <h4 class="instruction-header">Select Algorithm</h4>
-                        <br>
-                        <p class=intro-text>Choose an algorithm from the dropdown menu to select a search algorithm to use. Then hit run to find a path!</p>
-                    </li>
-                    <li class="instruction-item">
-                        <h4 class="instruction-header">Select Change</h4>
-                        <br>
-                        <p class=intro-text>Choose how you want to edit the map. Select the type of object you want to create and
-                            each mouse click on a tile will turn the tile to the selected object.
-                        </p>
-                    </li>
-                </ul>
-            </p>
+            <p class="intro-text" id="reveal" onclick=reveal()>Click here for instructions.</p>
+            <div id="hidden-text">
+                <p>Greetings seeker! You are creating a map to find buried treasure. First design your map, then choose
+                    a search algoirthm to find your treasure!
+                    <ul class="instruction-list">
+                        <li class="instruction-item">
+                            <h4 class="instruction-header">Run</h4>
+                            <br>
+                            <p class=intro-text>Click run to apply the selected search algorithm on the current treasure map.</p>
+                        </li>
+                        <li class="instruction-item">
+                            <h4 class="instruction-header">Select Algorithm</h4>
+                            <br>
+                            <p class=intro-text>Choose an algorithm from the dropdown menu to select a search algorithm to use. Then hit run to find a path!</p>
+                        </li>
+                        <li class="instruction-item">
+                            <h4 class="instruction-header">Select Change</h4>
+                            <br>
+                            <p class=intro-text>Choose how you want to edit the map. Select the type of object you want to create and
+                                each mouse click on a tile will turn the tile to the selected object.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </div>
         </div>
     </div>
     <ul class="seeker-bar">
         <li class="seeker-item" id="run">Run</li>
+        <li class="seeker-item" id="reset">Reset</li>
+        <li class="seeker-item" id="reset-all">Reset All</li>
+        <li class="seeker-item" id="add-row">Add Row</li>
+        <li class="seeker-item" id="add-col">Add Column</li>
         <li class="seeker-item" id="algorithm">Select Algorithm</li>
         <li class="seeker-item" id="change">Select Change</li>
     </ul>
-    <button id="work" onclick=addCell()>Work</button>
     <div id="map"></div>
 </body>
 </html>

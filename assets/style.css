@@ -2,8 +2,16 @@
 Designed for seeker.html
 */
 :root {
-    --rowNum: 10;
+    --rowNum: 3;
     --colNum: 5;
+}
+
+#reveal:hover {
+    cursor: pointer;
+}
+
+#hidden-text {
+    display: none;
 }
 
 #working-map {
@@ -19,16 +27,10 @@ Designed for seeker.html
     padding: 20px;
 }
 
-.map {
-/*    grid-template-rows: repeat(var(--rowNum), auto);*/
-    /*grid-template-columns: auto auto auto;
+#map {
     display: grid;
-    width: 100px;
-    height: 100px;
-    color: white;
-    background-color: coral;*/
-    display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(var(--rowNum), auto);
+    grid-template-columns: repeat(var(--colNum), auto);
     background-color: #2196F3;
     padding: 10px;
 }
@@ -38,7 +40,6 @@ Designed for seeker.html
     background-color: peru;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
-    font-size: 30px;
 }
 
 .seeker-bar {
@@ -54,8 +55,27 @@ Designed for seeker.html
     text-align: center;
     border-right: 2px solid white;
     color: white;
-    font-size: 3vw;
-    width: 33%;    
+    font-size: 1.5em;
+    width: 14%;    
+}
+
+.seeker-item:hover {
+    cursor: pointer;
+}
+
+#seeker-title {
+    margin-top: 0px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.intro-text {
+    text-align: center;
+}
+
+.golden {
+    color: gold;
+    font-weight: bolder;
 }
 
 
