@@ -1,19 +1,19 @@
 let cellStatus = {
     NORMAL: "peru",
-    TREASURE: "golden",
+    TREASURE: "gold",
     OBSTACLE: "black",
     START: "red"
 }
 
 let create = document.getElementById("work");
 let grid = document.getElementById("map");
-let rows = 2;
+let rows = 4;
 let cols = 4;
 //The status we will set a clicked cell onto.
 let cell_status = cellStatus.NORMAL;
 createGrid(rows, cols);
 setClickReveals();
-setCellEvents();
+//setCellEvents();
 
 
 //Set the event handlers for all the cells in the Grid.
@@ -28,9 +28,8 @@ function setCellEvents() {
 
 //Sets the status of the grid's child_index child.
 function setCellStatus(child_index) {
-    cell = grid.children[child_index].style.backgroundColor = "white";
     if (cell_status != "peru") {
-        grid.children[child_index].style.backgroundColor = "golden";
+        cell = grid.children[child_index].style.backgroundColor = cell_status;
         cell.status = cell_status;
     }
 }
@@ -125,10 +124,12 @@ function createGrid(rows, cols) {
     let r = 0;
     let c = 0;
     let child_index = 0;
-    emptyGrid();
+    let grid_size = grid.childElementCount;
     for (r=0; r < rows; r++) {
         for (c=0; c < cols; c++) {
-            addCell(child_index);
+            if (child_index >= grid_size) {
+                addCell(child_index);
+            }
             child_index++;
         }
     }
@@ -150,7 +151,18 @@ function addCell(child_index) {
     cell.status = cellStatus.NORMAL;
     cell.seen = false;
     cell.child_index = child_index;
+    cell.addEventListener("click", function() {
+        setCellStatus(cell.child_index);
+    });
+    addSearchedImage(cell);
     grid.appendChild(cell);
+}
+
+//Add a hidden image that will reveal itself when the given cell is searched.
+function addSearchedImage(cell) {
+    let image = document.createElement("div");
+    image.classList.add("searched-image");
+    cell.appendChild(image);
 }
 
 //Make a grid-item, to record the state of the grid

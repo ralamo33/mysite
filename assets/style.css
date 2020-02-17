@@ -41,10 +41,19 @@ Designed for seeker.html
 }
 
 .cell {
-    height: 10px;
+    height: 1em;
     background-color: peru;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
+}
+
+.searched-image {
+    margin: auto;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: black;
+    z-index: 5;
+    visibility: hidden;
 }
 
 .seeker-bar {
