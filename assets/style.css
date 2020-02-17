@@ -18,11 +18,16 @@ Designed for seeker.html
     --colNum: 5;
 }
 
+#seeker-body {
+    background-color: sandybrown;
+    color: black;
+}
+
 #reveal:hover {
     cursor: pointer;
 }
 
-#hidden-text {
+.hidden-text {
     display: none;
     text-align: center;
 }
@@ -44,7 +49,7 @@ Designed for seeker.html
     display: grid;
     grid-template-rows: repeat(var(--rowNum), auto);
     grid-template-columns: repeat(var(--colNum), auto);
-    background-color: #2196F3;
+    background-color: saddlebrown;
     padding: 10px;
 }
 
@@ -59,23 +64,29 @@ Designed for seeker.html
     list-style-type: none;
     margin: auto;
     overflow: hidden;
-    background-color: rgb(27, 6, 104);
+    background-color: saddlebrown;
     color: red;
 }
 
 .seeker-item {
     float: left;
     text-align: center;
-    border-right: 2px solid white;
-    color: white;
-    font-size: 1.5em;
+    border-right: solid black;
+    color: black;
+    font-size: 1.7em;
     width: 24%;    
 }
 
 .seeker-option {
-    display: none;
-    position: absolute;
     z-index: 1;
+    text-align: inherit;
+    font-size: .8em;
+    color: white;
+    display: none;
+}
+
+.seeker-option:hover {
+    display: inline-block;
 }
 
 .seeker-item:hover {
@@ -93,7 +104,7 @@ Designed for seeker.html
 }
 
 .golden {
-    color: gold;
+    color: yellow;
     font-weight: bolder;
 }
 
@@ -161,7 +172,7 @@ body {
     margin: 0;
 }
 
-.content {
+body {
     background-color: #0000A1;
     margin: 0;
 }

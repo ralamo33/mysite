@@ -1,12 +1,12 @@
 {% extends "main/header.html" %}
 {% block content %}
-<body class="about_me">
+<body class="about_me" id="seeker-body">
     <div class="intro">
         <h3 id="seeker-title">Seeker!</h3>
         <p class="intro-text">Seeker is a game where you can use different search algorithms to find the <span class="golden">GOLDEN</span> treasure.</p>
         <div class="instructions">
             <p class="intro-text" id="reveal">Click here for instructions.</p>
-            <div id="hidden-text">
+            <div class="hidden-text">
                 <p>Greetings seeker! You are creating a map to find buried treasure. First design your map, then choose
                     a search algoirthm to find your treasure!
                     <ul class="instruction-list">
@@ -33,18 +33,31 @@
         </div>
     </div>
     <ul class="seeker-bar">
-
-        <li class="seeker-item" id="play">Play
-            <li class="seeker-option">Run</li>
-            <li class="seeker-option">Reset</li>
-            <li class="seeker-option">Reset All</li>
+        <li class="seeker-item" id="play">
+            <ul>Play
+                <br>
+                <li class="seeker-option play">Run</li>
+                <li class="seeker-option play">Reset</li>
+                <li class="seeker-option play">Reset All</li>
+            </ul>
         </li>
-        <li class="seeker-item" id="size">Size
-            <li class="seeker-option">Add Row</li>
-            <li class="seeker-option">Add Column</li>
+        <li class="seeker-item" id="size">
+            <ul>Size
+                <br>
+                <li class="seeker-option size">Add Row</li>
+                <li class="seeker-option size">Add Column</li>
+            </ul>
         </li>
-        <li class="seeker-item" id="algorithm">Choose Algorithm</li>
-        <li class="seeker-item" id="change">Select Change</li>
+        <li class="seeker-item" id="algorithm">
+            <ul>Choose Algorithm
+                <br>
+            </ul>
+        </li>
+        <li class="seeker-item" id="change">
+            <ul>Choose Change
+                <br>
+            </ul>
+        </li>
     </ul>
     <div id="map"></div>
 </body>

@@ -1,25 +1,62 @@
 let create = document.getElementById("work");
 let map = document.getElementById("map");
 let mapItems = [];
-createGraph(10, 10)
+let rows = 10;
+let cols = 10;
+createGraph(rows, cols)
 setClickReveals();
 
 //Set certain text to reveal hidden text on click.
 function setClickReveals() {
     let r = document.getElementById("reveal");
-    r.addEventListener('click', reveal);
+    let play = document.getElementById("play");
+    let size = document.getElementById("size");
+    let change = document.getElementById("change");
+    let algorithm = document.getElementById("algorithm");
+    r.addEventListener('click', reveal_text);
+    play.addEventListener('click', reveal_play_children);
+    size.addEventListener('click', reveal_size_children);
+    change.addEventListener('click', reveal_change_children);    
+}
+
+//Reveal the hidden children of play
+function reveal_play_children() {
+    reveal_by_class("play", "block");
+}
+
+function reveal_size_children() {
+    reveal_by_class("size", "block");
+}
+
+function reveal_change_children() {
+    reveal_by_class("change", "block");
+}
+
+function reveal_algorithm_children() {
+    reveal_by_class("algorithm", "block");
 }
 
 //Reveal the hidden text
-function reveal() {
-    let hidden = document.getElementById("hidden-text");
-    if (hidden.style.display != "block") {
-        hidden.style.display = "block";
-    }
-    else {
-        hidden.style.display = "none"
-    }
+function reveal_text() {
+    reveal_by_class("hidden-text", "block");
 }
+
+function reveal_by_class(class_name, display_value) {
+    let reveal = document.getElementsByClassName(class_name);
+    for (let i = 0; i < reveal.length; i++) {
+        if (reveal[i].style.display != display_value) {
+            reveal[i].style.display = display_value;
+        }
+        else {
+            reveal[i].style.display = "none";
+        }
+    }
+    return this;
+}
+
+
+
+
 
 //Create a graph of the given row and col
 //rows (int): The number of rows for the graph
