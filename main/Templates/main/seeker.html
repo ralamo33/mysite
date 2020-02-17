@@ -5,7 +5,7 @@
         <h3 id="seeker-title">Seeker!</h3>
         <p class="intro-text">Seeker is a game where you can use different search algorithms to find the <span class="golden">GOLDEN</span> treasure.</p>
         <div class="instructions">
-            <p class="intro-text" id="reveal" onclick=reveal()>Click here for instructions.</p>
+            <p class="intro-text" id="reveal">Click here for instructions.</p>
             <div id="hidden-text">
                 <p>Greetings seeker! You are creating a map to find buried treasure. First design your map, then choose
                     a search algoirthm to find your treasure!
@@ -33,12 +33,17 @@
         </div>
     </div>
     <ul class="seeker-bar">
-        <li class="seeker-item" id="run">Run</li>
-        <li class="seeker-item" id="reset">Reset</li>
-        <li class="seeker-item" id="reset-all">Reset All</li>
-        <li class="seeker-item" id="add-row">Add Row</li>
-        <li class="seeker-item" id="add-col">Add Column</li>
-        <li class="seeker-item" id="algorithm">Select Algorithm</li>
+
+        <li class="seeker-item" id="play">Play
+            <li class="seeker-option">Run</li>
+            <li class="seeker-option">Reset</li>
+            <li class="seeker-option">Reset All</li>
+        </li>
+        <li class="seeker-item" id="size">Size
+            <li class="seeker-option">Add Row</li>
+            <li class="seeker-option">Add Column</li>
+        </li>
+        <li class="seeker-item" id="algorithm">Choose Algorithm</li>
         <li class="seeker-item" id="change">Select Change</li>
     </ul>
     <div id="map"></div>

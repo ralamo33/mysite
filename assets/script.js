@@ -6,18 +6,14 @@ setClickReveals();
 
 //Set certain text to reveal hidden text on click.
 function setClickReveals() {
-    let hidden = document.getElementById("hidden-text");
-    let revealers = document.getElementById("reveal");
-    reveal.addEventListener("click", function(){ 
-        hidden.visibility = "visible";
-        alert(hidden.visibility);
-    });
+    let r = document.getElementById("reveal");
+    r.addEventListener('click', reveal);
 }
 
 //Reveal the hidden text
 function reveal() {
     let hidden = document.getElementById("hidden-text");
-    if (hidden.style.display == "none") {
+    if (hidden.style.display != "block") {
         hidden.style.display = "block";
     }
     else {

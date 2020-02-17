@@ -1,4 +1,16 @@
 /*
+        <li class="seeker-item" id="run">Run</li>
+        <li class="seeker-item" id="reset">Reset</li>
+        <li class="seeker-item" id="reset-all">Reset All</li>
+        <li class="seeker-item" id="add-row">Add Row</li>
+        <li class="seeker-item" id="add-col">Add Column</li>
+        <li class="seeker-item" id="algorithm">Select Algorithm</li>
+        <li class="seeker-item" id="change">Select Change</li>
+
+*/
+
+
+/*
 Designed for seeker.html
 */
 :root {
@@ -12,6 +24,7 @@ Designed for seeker.html
 
 #hidden-text {
     display: none;
+    text-align: center;
 }
 
 #working-map {
@@ -56,7 +69,13 @@ Designed for seeker.html
     border-right: 2px solid white;
     color: white;
     font-size: 1.5em;
-    width: 14%;    
+    width: 24%;    
+}
+
+.seeker-option {
+    display: none;
+    position: absolute;
+    z-index: 1;
 }
 
 .seeker-item:hover {
