@@ -1,7 +1,7 @@
 let create = document.getElementById("work");
 let map = document.getElementById("map");
 let mapItems = [];
-createGraph(1, 1)
+createGraph(10, 10)
 
 function createGraph(rows, cols) {
     let r = 0;
@@ -16,7 +16,7 @@ function createGraph(rows, cols) {
 
 function addCell() {
     let cell = document.createElement("div");
-    cell.classList.add("cell");
+    cell.classList.add("working-cell");
     map.appendChild(cell);
 }
 

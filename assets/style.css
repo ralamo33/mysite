@@ -4,25 +4,41 @@ Designed for seeker.html
 :root {
     --rowNum: 10;
     --colNum: 5;
-    --gridHeight: 300px;
+}
+
+#working-map {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: peru;
+}
+
+.working-cell {
+    height: 10px;
+    background-color: peru;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
 }
 
 .map {
-    /*
-    grid-template-rows: repeat(var(--rowNum), var(--gridHeight));
-    grid-template-columns: repeat(var(--colNum), auto);*/
+/*    grid-template-rows: repeat(var(--rowNum), auto);*/
+    /*grid-template-columns: auto auto auto;
     display: grid;
     width: 100px;
     height: 100px;
     color: white;
-    background-color: coral;
+    background-color: coral;*/
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
 }
 
 .cell {
-    
-    width: 100px;
-    height: 100px;
-    background-color: purple;
+    height: 10px;
+    background-color: peru;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
 }
 
 .seeker-bar {
