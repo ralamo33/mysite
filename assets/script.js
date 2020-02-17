@@ -1,22 +1,40 @@
 let cellStatus = {
-    NORMAL: 1,
-    TREASURE: 2,
-    OBSTACLE: 3,
-    START: 4
+    NORMAL: "peru",
+    TREASURE: "golden",
+    OBSTACLE: "black",
+    START: "red"
 }
 
 let create = document.getElementById("work");
 let grid = document.getElementById("map");
-let cells = [];
 let rows = 2;
 let cols = 4;
 //The status we will set a clicked cell onto.
 let cell_status = cellStatus.NORMAL;
-createGrid(rows, cols)
+createGrid(rows, cols);
 setClickReveals();
+setCellEvents();
 
 
+//Set the event handlers for all the cells in the Grid.
+function setCellEvents() {
+    cells = grid.children;
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].addEventListener("click", function() {
+            setCellStatus(cells[i].child_index);
+        });
+    }
+}
 
+//Sets the status of the grid's child_index child.
+function setCellStatus(child_index) {
+    cell = map.children[child_index];
+    alert(cell.status);
+    if (cell_status != "peru") {
+        cell.style.backgroundColor = "golden";
+        cell.status = cell_status;
+    }
+}
 
 //Set certain text to reveal hidden text on click.
 function setClickReveals() {
@@ -37,16 +55,20 @@ function setClickReveals() {
     add_row.addEventListener('click', addRow);
     add_col.addEventListener('click', addCol);
     treasure.addEventListener('click', setTreasure);
-    start.addEventListener('click', setstart);
+    start.addEventListener('click', setStart);
     obstacle.addEventListener('click', setObstacle);
 }
 
 function setTreasure() {
-
+    cell_status = cellStatus.TREASURE;
 }
 
-function setObstacle() {}
-function setStart() {}
+function setObstacle() {
+    cell_status = cellStatus.OBSTACLE;
+}
+function setStart() {
+    cell_status = cellStatus.START;
+}
 
 function addRow() {
     rows = rows + 1;
@@ -103,11 +125,12 @@ function reveal_by_class(class_name, display_value) {
 function createGrid(rows, cols) {
     let r = 0;
     let c = 0;
+    let child_index = 0;
     emptyGrid();
     for (r=0; r < rows; r++) {
         for (c=0; c < cols; c++) {
-            makegridItem("standard", false);
-            addCell();
+            addCell(child_index);
+            child_index++;
         }
     }
     document.documentElement.style.setProperty("--rowNum", rows.toString());
@@ -122,9 +145,12 @@ function emptyGrid() {
 }
 
 //Add a cell to the grid
-function addCell() {
+function addCell(child_index) {
     let cell = document.createElement("div");
-    cell.classList.add("working-cell");
+    cell.classList.add("cell");
+    cell.status = cellStatus.NORMAL;
+    cell.seen = false;
+    cell.child_index = child_index;
     grid.appendChild(cell);
 }
 

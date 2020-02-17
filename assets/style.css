@@ -32,19 +32,6 @@ Designed for seeker.html
     text-align: center;
 }
 
-#working-map {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: peru;
-}
-
-.working-cell {
-    height: 10px;
-    background-color: peru;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-}
-
 #map {
     display: grid;
     grid-template-rows: repeat(var(--rowNum), auto);
@@ -55,7 +42,6 @@ Designed for seeker.html
 
 .cell {
     height: 10px;
-    background-color: peru;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
 }
