@@ -28,12 +28,12 @@ function setCellEvents() {
 
 //Sets the status of the grid's child_index child.
 function setCellStatus(child_index) {
-    cell = map.children[child_index];
-    alert(cell.status);
+    cell = grid.children[child_index];
     if (cell_status != "peru") {
-        cell.style.backgroundColor = "golden";
+        grid.children[child_index].style.backgroundColor = "golden";
         cell.status = cell_status;
     }
+    alert(grid.children[child_index].style.backgroundColor);
 }
 
 //Set certain text to reveal hidden text on click.
