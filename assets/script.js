@@ -5,12 +5,20 @@ let cellStatus = {
     START: "red"
 }
 
-let create = document.getElementById("work");
+let algorithm = {
+    BFS: 1,
+    DFS: 2
+}
+
+
 let grid = document.getElementById("map");
 let rows = 4;
 let cols = 4;
+let start = 0;
+let treasures = 0;
 //The status we will set a clicked cell onto.
 let cell_status = cellStatus.NORMAL;
+let current_algorithm = algorithm.BFS;
 createGrid(rows, cols);
 setClickReveals();
 //setCellEvents();
@@ -26,12 +34,42 @@ function setCellEvents() {
     }
 }
 
+
 //Sets the status of the grid's child_index child.
 function setCellStatus(child_index) {
-    if (cell_status != "peru") {
-        cell = grid.children[child_index].style.backgroundColor = cell_status;
-        cell.status = cell_status;
+    if (cell_status == cell_status.NORMAL) {}
+    else if (cell_status == cellStatus.TREASURE) {
+        setTreasure(child_index);
     }
+    else if (cell_status == cellStatus.START) {
+        setStart(child_index);
+    }
+    else if (cell_status == cellStatus.OBSTACLE) {
+        let cell = grid.children[child_index].style.backgroundColor = cell_status;
+        cell.status = cell_status;      
+    }
+}
+
+
+function setTreasure(child_index) {
+    let cell = grid.children[child_index];
+    cell = cell.style.backgroundColor = cellStatus.TREASURE;
+    cell.status = cellStatus.TREASURE;
+    treasures++;
+}
+
+function setStart(child_index) {
+    removeStart();
+    let cell = grid.children[child_index];
+    cell = cell.style.backgroundColor = cellStatus.START;
+    cell.status = cellStatus.START;
+    start = child_index;
+}
+
+function removeStart() {
+    cell = grid.children[start];
+    cell.style.backgroundColor = cellStatus.NORMAL;
+    cell.status = cellStatus.NORMAL;
 }
 
 //Set certain text to reveal hidden text on click.
@@ -52,20 +90,21 @@ function setClickReveals() {
     change.addEventListener('click', reveal_change_children);  
     add_row.addEventListener('click', addRow);
     add_col.addEventListener('click', addCol);
-    treasure.addEventListener('click', setTreasure);
-    start.addEventListener('click', setStart);
-    obstacle.addEventListener('click', setObstacle);
+    treasure.addEventListener('click', setChangeTreasure);
+    start.addEventListener('click', setChangeStart);
+    obstacle.addEventListener('click', setChangeObstacle);
 }
 
-function setTreasure() {
+function setChangeTreasure() {
     cell_status = cellStatus.TREASURE;
 }
 
-function setObstacle() {
-    cell_status = cellStatus.OBSTACLE;
-}
-function setStart() {
+function setChangeStart() {
     cell_status = cellStatus.START;
+}
+
+function setChangeObstacle() {
+    cell_status = cellStatus.OBSTACLE;
 }
 
 function addRow() {
@@ -116,7 +155,6 @@ function reveal_by_class(class_name, display_value) {
 
 
 
-
 //Create a graph of the given row and col
 //rows (int): The number of rows for the graph
 //cols (int): The number of cols for the graph
@@ -132,6 +170,12 @@ function createGrid(rows, cols) {
             }
             child_index++;
         }
+    }
+    if (start == 0) {
+        setStart(0);
+    }
+    if (treasures == 0) {
+        setTreasure(grid.childElementCount - 1);
     }
     document.documentElement.style.setProperty("--rowNum", rows.toString());
     document.documentElement.style.setProperty("--colNum", cols.toString());
