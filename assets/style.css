@@ -195,12 +195,13 @@ Designed for the About Me page.
     margin-right: auto;
     max-width: 100%;
     max-height: 100%;
-
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
 }
 
 .column {
     float: left;
-    width: 33%;
+    height: auto;
     border: 1px solid black;
 }
 
@@ -231,15 +232,15 @@ Designed for the About Me page.
     display: none;
     font-style: italic;
     color: gold;
+    z-index: 1;
 }
 
 .skill:hover {
-    border-bottom: 1px solid black;
 }
 
 .skill:hover .hidden {
     display: inline;
-    color: gold;
+    color: white;
 }
 
 /*Reveal the text explaining each skill.*/
@@ -314,8 +315,6 @@ Designed for the About Me page.
 
 .bottom_pictures {
     box-sizing: border-box;
-    max-width: 390px;
-    max-height: 390px;
 }
 
 .bottom_picture {
