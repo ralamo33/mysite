@@ -34,13 +34,21 @@ function run() {
 }
 
 function bfs() {
+    return search(true);
+}
+
+function dfs() {
+    return search(false);
+}
+
+function search(is_bfs) {
     found_treasure = 0;
     queue = [];
     seen = [];
     path = [];
     queue.push(grid.children[start]);
     while (found_treasure < treasures) {
-        if (littleBfs(queue, seen, found_treasure)) {
+        if (littleSearch(queue, seen, found_treasure, is_bfs)) {
             return seen;
         }
         queue.push(nextUnvisited())
@@ -48,9 +56,14 @@ function bfs() {
     return seen;
 }
 
-function littleBfs(queue, seen, found_treasure) {
+function littleSearch(queue, seen, found_treasure, is_bfs) {
     while (queue.length > 0) {
-        next = queue.shift();
+        if (is_bfs) {
+            next = queue.shift();
+        }
+        else {
+            next = queue.pop();
+        }
         if (contains(seen, next)) {continue;}
         seen.push(next);
         if (next.style.backgroundColor == cellStatus.TREASURE) {
