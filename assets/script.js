@@ -1,3 +1,5 @@
+//Learn whether I can give Javascript variable values to HTML elements
+
 let cellStatus = {
     NORMAL: "peru",
     TREASURE: "gold",
@@ -6,8 +8,8 @@ let cellStatus = {
 }
 
 let algorithm = {
-    BFS: 1,
-    DFS: 2
+    BFS: bfs,
+    DFS: dfs
 }
 
 
@@ -21,22 +23,92 @@ let cell_status = cellStatus.NORMAL;
 let current_algorithm = algorithm.BFS;
 createGrid(rows, cols);
 setClickReveals();
-//setCellEvents();
 
+/*
+Algorithm logic.
+*/
+function run() {
+    current_algorithm;
+}
 
-//Set the event handlers for all the cells in the Grid.
-function setCellEvents() {
-    cells = grid.children;
-    for (let i = 0; i < cells.length; i++) {
-        cells[i].addEventListener("click", function() {
-            setCellStatus(cells[i].child_index);
-        });
+function bfs() {
+    found_treasure = 0;
+    queue = [];
+    queue.push(grid.children[start]);
+    while (found_treasure < treasures) {
+        if (littleBfs(queue)) {
+            return;
+        }
+        queue.push(nextUnvisited())
     }
 }
 
+function littleBfs(queue) {
+    while (queue.length > 0) {
+    }
+}
+
+function nextUnvisited() {
+    children = grid.children;
+    for(let i = 0; i < children.length; i++) {
+        if (!isVisited(i)) {
+            return children[i];
+        }
+    }
+    //ToDo: Throw an error if no cell is returned. There are more treasures than there are treasure tiles.
+}
+
+function dfs() {
+
+}
+
+function getNeighbors(child_index) {
+    neighbors = []
+    if ((child_index % cols) != 0) {
+        neighbors.push(child_index - 1);
+    }
+    if (((child_index + 1) % cols) != 0) {
+        neighbors.push(child_index + 1);
+    }
+    if (child_index > cols) {
+        neighbors.push(child_index - cols);
+    }
+    if (child_index < (rows - 1 ) * cols) {
+        neighbors.push(child_index + cols);
+    }
+    return neighbors;
+}
+/*
+Algorithm logic ends.
+*/
+
+//Return whether the cell of the given index has been visiited.
+function isVisited(child_index) {
+    cell = grid.children[child_index];
+    search_image = cell.firstChild;
+    return search_image.style.visibility == "visible";
+}
+
+//Visit node of the given child_index
+function visit(child_index) {
+    cell = grid.children[child_index];
+    search_image = cell.firstChild;
+    search_image.style.visibility = "visible";
+}
 
 //Sets the status of the grid's child_index child.
 function setCellStatus(child_index) {
+    let cell = grid.children[child_index];
+    //If the cell 0 is start and it is changed it will revert back to start. There must be a start.
+    if (cell.style.backgroundColor == cellStatus.TREASURE) {
+        treasures--;
+    }
+    else if(cell.style.backgroundColor == cellStatus.START & cell_status != cellStatus.START) {
+        if (child_index == 0) {
+            return;
+        }
+        setStart(0);
+    }
     if (cell_status == cell_status.NORMAL) {}
     else if (cell_status == cellStatus.TREASURE) {
         setTreasure(child_index);
@@ -45,7 +117,7 @@ function setCellStatus(child_index) {
         setStart(child_index);
     }
     else if (cell_status == cellStatus.OBSTACLE) {
-        let cell = grid.children[child_index].style.backgroundColor = cell_status;
+        cell.style.backgroundColor = cell_status;
         cell.status = cell_status;      
     }
 }

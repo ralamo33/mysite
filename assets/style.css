@@ -52,7 +52,7 @@ Designed for seeker.html
     height: 1.3em;
     width: 1.3em;
     background-color: black;
-    z-index: 5;
+    z-index: 1;
     visibility: hidden;
 }
 
