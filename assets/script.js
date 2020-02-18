@@ -66,6 +66,7 @@ function littleSearch(queue, seen, found_treasure, is_bfs) {
         }
         if (contains(seen, next)) {continue;}
         seen.push(next);
+        if (next.style.backgroundColor == cellStatus.OBSTACLE) {continue;}
         if (next.style.backgroundColor == cellStatus.TREASURE) {
             found_treasure++;
             if (found_treasure == treasures) {
@@ -127,6 +128,13 @@ function getNeighbors(index) {
 /*
 Algorithm logic ends.
 */
+
+function reset() {
+    children = grid.children;
+    for (let i = 0; i < children.length; i++) {
+        children[i].search_image.style.visibility = "hidden";
+    }
+}
 
 //Return whether the cell of the given index has been visiited.
 function isVisited(child_index) {
