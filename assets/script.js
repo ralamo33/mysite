@@ -8,8 +8,8 @@ let cellStatus = {
 }
 
 let algorithm = {
-    BFS: bfs,
-    DFS: bfs
+    BFS: breadthFirstSearch,
+    DFS: depthFirstSearch,
 }
 
 
@@ -33,11 +33,11 @@ function run() {
     pathVisit(path, 500);
 }
 
-function bfs() {
+function breadthFirstSearch() {
     return search(true);
 }
 
-function dfs() {
+function depthFirstSearch() {
     return search(false);
 }
 
@@ -211,9 +211,12 @@ function setClickReveals() {
     let start = document.getElementById("start");
     let obstacle = document.getElementById("obstacle");
     let begin = document.getElementById("run");
+    let breadthFirst = document.getElementById("bfs");
+    let depthFirst = document.getElementById("dfs");
     r.addEventListener('click', reveal_text);
     play.addEventListener('click', reveal_play_children);
     size.addEventListener('click', reveal_size_children);
+    algorithm.addEventListener('click', reveal_algorithm_children);
     change.addEventListener('click', reveal_change_children);  
     add_row.addEventListener('click', addRow);
     add_col.addEventListener('click', addCol);
@@ -221,6 +224,16 @@ function setClickReveals() {
     start.addEventListener('click', setChangeStart);
     obstacle.addEventListener('click', setChangeObstacle);
     begin.addEventListener('click', run);
+    breadthFirst.addEventListener('click', setBfs);
+    depthFirst.addEventListener('click', setDfs);
+}
+
+function setBfs() {
+    current_algorithm = algorithm.BFS;
+}
+
+function setDfs() {
+    current_algorithm = algorithm.DFS;
 }
 
 function setChangeTreasure() {
