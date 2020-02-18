@@ -35,6 +35,7 @@ function bfs() {
     found_treasure = 0;
     queue = [];
     seen = [];
+    path = [];
     queue.push(grid.children[start]);
     while (found_treasure < treasures) {
         if (littleBfs(queue, seen, found_treasure)) {
@@ -42,13 +43,14 @@ function bfs() {
         }
         queue.push(nextUnvisited())
     }
+    return seen;
 }
 
 function littleBfs(queue, seen, found_treasure) {
     while (queue.length > 0) {
         next = queue.shift();
-        if (contains(next, seen)) {continue;}
-        seen.push(next);
+        if (contains(seen, next.id)) {continue;}
+        seen.push(next.id);
         visit(next);
         if (next.style.backgroundColor == cellStatus.TREASURE) {
             found_treasure++;
@@ -65,12 +67,13 @@ function littleBfs(queue, seen, found_treasure) {
 }
 
 function contains(list, item) {
+    answer = false;
     for (let i = 0; i < list.length; i++){
         if (list[i] == item) {
-            return true;
+            answer = true;
         }
     }
-    return false;
+    return answer;
 }
 
 function nextUnvisited() {
