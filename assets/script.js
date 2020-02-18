@@ -47,7 +47,7 @@ function search(is_bfs) {
     seen = [];
     path = [];
     queue.push(grid.children[start]);
-    while (found_treasure < treasures) {
+    while (true) {
         if (littleSearch(queue, seen, found_treasure, is_bfs)) {
             return seen;
         }
@@ -75,6 +75,9 @@ function littleSearch(queue, seen, found_treasure, is_bfs) {
         neighbors = getNeighbors(next.id);
         for (let i=0; i < neighbors.length; i++) {
             queue.push(grid.children[neighbors[i]]);
+        }
+        if (seen.length >= grid.childElementCount) {
+            return true;
         }
     }
     return false;
@@ -314,9 +317,6 @@ function createGrid(rows, cols) {
     }
     if (start == 0) {
         setStart(0);
-    }
-    if (treasures == 0) {
-        setTreasure(grid.childElementCount - 1);
     }
     document.documentElement.style.setProperty("--rowNum", rows.toString());
     document.documentElement.style.setProperty("--colNum", cols.toString());
