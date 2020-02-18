@@ -9,7 +9,7 @@ let cellStatus = {
 
 let algorithm = {
     BFS: bfs,
-    DFS: dfs
+    DFS: bfs
 }
 
 
@@ -28,7 +28,7 @@ setClickReveals();
 Algorithm logic.
 */
 function run() {
-    current_algorithm;
+    path = current_algorithm();
 }
 
 function bfs() {
@@ -39,7 +39,7 @@ function bfs() {
     queue.push(grid.children[start]);
     while (found_treasure < treasures) {
         if (littleBfs(queue, seen, found_treasure)) {
-            return;
+            return seen;
         }
         queue.push(nextUnvisited())
     }
@@ -52,6 +52,8 @@ function littleBfs(queue, seen, found_treasure) {
         if (contains(seen, next.id)) {continue;}
         seen.push(next.id);
         visit(next);
+        if (next.id == 15) {
+        }
         if (next.style.backgroundColor == cellStatus.TREASURE) {
             found_treasure++;
             if (found_treasure == treasures) {
@@ -205,7 +207,7 @@ function setClickReveals() {
     treasure.addEventListener('click', setChangeTreasure);
     start.addEventListener('click', setChangeStart);
     obstacle.addEventListener('click', setChangeObstacle);
-    begin.addEventListener('click', bfs);
+    begin.addEventListener('click', run);
 }
 
 function setChangeTreasure() {
