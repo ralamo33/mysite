@@ -47,9 +47,9 @@ function bfs() {
 function littleBfs(queue, seen, found_treasure) {
     while (queue.length > 0) {
         next = queue.shift();
-        if (contains(next.id, seen)) {continue;}
-        seen.push(next.id);
-        visit(next.id);
+        if (contains(next, seen)) {continue;}
+        seen.push(next);
+        visit(next);
         if (next.style.backgroundColor == cellStatus.TREASURE) {
             found_treasure++;
             if (found_treasure == treasures) {
@@ -116,8 +116,8 @@ function isVisited(child_index) {
 }
 
 //Visit node of the given child_index
-function visit(index) {
-    cell = grid.children[index];
+function visit(cell) {
+    //cell = grid.children[index];
     set_visible(cell);
     /*window.setTimeout(function() {
         set_visible(cell)
