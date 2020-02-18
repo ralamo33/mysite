@@ -1,4 +1,4 @@
-//Learn whether I can give Javascript variable values to HTML elements
+//I need to know the cell_index of each cell. So I know its bad code but I will use inner HTML to number them with their cell_index
 
 let cellStatus = {
     NORMAL: "peru",
@@ -34,18 +34,43 @@ function run() {
 function bfs() {
     found_treasure = 0;
     queue = [];
+    seen = [];
     queue.push(grid.children[start]);
     while (found_treasure < treasures) {
-        if (littleBfs(queue)) {
+        if (littleBfs(queue, seen, found_treasure)) {
             return;
         }
         queue.push(nextUnvisited())
     }
 }
 
-function littleBfs(queue) {
+function littleBfs(queue, seen, found_treasure) {
     while (queue.length > 0) {
+        next = queue.shift();
+        if (contains(next, seen)) {continue;}
+        if (next.style.backgroundColor == cellStatus.TREASURE) {
+            found_treasure++;
+            if (found_treasure == treasures) {
+                return true;
+            }
+        }
+        seen.push(next);
+        visit(next.id);
+        neighbors = getNeighbors(next.id);
+        for (let i=0; i < neighbors.length; i++) {
+            queue.push(grid.children[neighbors[i]]);
+        }
     }
+    return false;
+}
+
+function contains(list, item) {
+    for (let i = 0; i < list.length; i++){
+        if (list[i] == item) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function nextUnvisited() {
@@ -62,19 +87,20 @@ function dfs() {
 
 }
 
-function getNeighbors(child_index) {
+function getNeighbors(index) {
+    index = Number(index);
     neighbors = []
-    if ((child_index % cols) != 0) {
-        neighbors.push(child_index - 1);
+    if ((index % cols) != 0) {
+        neighbors.push(index - 1);
     }
-    if (((child_index + 1) % cols) != 0) {
-        neighbors.push(child_index + 1);
+    if (((index + 1) % cols) != 0) {
+        neighbors.push(index + 1);
     }
-    if (child_index > cols) {
-        neighbors.push(child_index - cols);
+    if (index > cols) {
+        neighbors.push(index - cols);
     }
-    if (child_index < (rows - 1 ) * cols) {
-        neighbors.push(child_index + cols);
+    if (index < (rows - 1 ) * cols) {
+        neighbors.push(index + cols);
     }
     return neighbors;
 }
@@ -156,6 +182,7 @@ function setClickReveals() {
     let treasure = document.getElementById("treasure");
     let start = document.getElementById("start");
     let obstacle = document.getElementById("obstacle");
+    let begin = document.getElementById("run");
     r.addEventListener('click', reveal_text);
     play.addEventListener('click', reveal_play_children);
     size.addEventListener('click', reveal_size_children);
@@ -165,6 +192,7 @@ function setClickReveals() {
     treasure.addEventListener('click', setChangeTreasure);
     start.addEventListener('click', setChangeStart);
     obstacle.addEventListener('click', setChangeObstacle);
+    begin.addEventListener('click', bfs);
 }
 
 function setChangeTreasure() {
@@ -266,9 +294,9 @@ function addCell(child_index) {
     cell.classList.add("cell");
     cell.status = cellStatus.NORMAL;
     cell.seen = false;
-    cell.child_index = child_index;
+    cell.id = child_index;
     cell.addEventListener("click", function() {
-        setCellStatus(cell.child_index);
+        setCellStatus(cell.id);
     });
     addSearchedImage(cell);
     grid.appendChild(cell);
