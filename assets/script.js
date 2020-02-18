@@ -52,7 +52,7 @@ function search(is_bfs) {
         if (littleSearch(queue, seen, found_treasure, is_bfs)) {
             return seen;
         }
-        queue.push(nextUnvisited())
+        queue.push(nextUnvisited(seen))
     }
     return seen;
 }
@@ -95,11 +95,18 @@ function contains(list, item) {
     return answer;
 }
 
-function nextUnvisited() {
+function nextUnvisited(seen) {
     children = grid.children;
     for(let i = 0; i < children.length; i++) {
-        if (!isVisited(i)) {
-            return children[i];
+        child = children[i];
+        if (contains(seen, child)) {
+            continue;
+        }
+        else if(child.status.backgroundColor == cellStatus.OBSTACLE) {
+            seen.push(child);
+        }
+        else {
+            return child;
         }
     }
     //ToDo: Throw an error if no cell is returned. There are more treasures than there are treasure tiles.
