@@ -21,6 +21,7 @@ let treasures = 0;
 //The status we will set a clicked cell onto.
 let cell_status = cellStatus.NORMAL;
 let current_algorithm = algorithm.BFS;
+let visit_counter = 0;
 createGrid(rows, cols);
 setClickReveals();
 
@@ -29,6 +30,7 @@ Algorithm logic.
 */
 function run() {
     path = current_algorithm();
+    pathVisit(path, 500);
 }
 
 function bfs() {
@@ -51,7 +53,7 @@ function littleBfs(queue, seen, found_treasure) {
         next = queue.shift();
         if (contains(seen, next.id)) {continue;}
         seen.push(next.id);
-        visit(next);
+        //visit(next);
         if (next.id == 15) {
         }
         if (next.style.backgroundColor == cellStatus.TREASURE) {
@@ -131,8 +133,21 @@ function visit(cell) {
         , 500);*/
 }
 
+//Visit each cell in the path with interval milliseconds inbetween
+function pathVisit(path, interval) {
+    setInterval(function() {
+        listVisit(path)
+    }, interval);
+}
+
+function listVisit(path) {
+    set_visible(path[visit_counter]);
+    visit_counter++;
+}
+
 //Set the cell's searched image visible after a certain numbe of miliseconds
-function set_visible(cell) {
+function set_visible(index) {
+    cell = grid.children[index];
     search_image = cell.firstChild;
     search_image.style.visibility = "visible";
 }
