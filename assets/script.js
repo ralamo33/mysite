@@ -22,6 +22,7 @@ let treasures = 0;
 let cell_status = cellStatus.NORMAL;
 let current_algorithm = algorithm.BFS;
 let visit_counter = 0;
+let visit_function;
 createGrid(rows, cols);
 setClickReveals();
 
@@ -104,10 +105,6 @@ function nextUnvisited() {
     //ToDo: Throw an error if no cell is returned. There are more treasures than there are treasure tiles.
 }
 
-function dfs() {
-
-}
-
 function getNeighbors(index) {
     index = Number(index);
     neighbors = []
@@ -130,10 +127,21 @@ Algorithm logic ends.
 */
 
 function reset() {
+    clearInterval(visit_function)
+    visit_counter = 0;
     children = grid.children;
     for (let i = 0; i < children.length; i++) {
-        children[i].search_image.style.visibility = "hidden";
+        children[i].firstChild.style.visibility = "hidden";
     }
+}
+
+function resetAll() {
+    reset();
+    children = grid.children;
+    for (let i = 0; i < children.length; i++) {
+        children[i].style.backgroundColor = cellStatus.NORMAL;
+    }
+    children[0].style.backgroundColor = cellStatus.START;
 }
 
 //Return whether the cell of the given index has been visiited.
@@ -145,8 +153,8 @@ function isVisited(child_index) {
 
 //Visit each cell in the path with interval milliseconds inbetween
 function pathVisit(path, interval) {
-    setInterval(function() {
-        listVisit(path)
+    visit_function = setInterval(function() {
+        listVisit(path);
     }, interval);
 }
 
@@ -224,6 +232,8 @@ function setClickReveals() {
     let begin = document.getElementById("run");
     let breadthFirst = document.getElementById("bfs");
     let depthFirst = document.getElementById("dfs");
+    let resetButton = document.getElementById("reset");
+    let resetAllButton = document.getElementById("reset-all");
     r.addEventListener('click', reveal_text);
     play.addEventListener('click', reveal_play_children);
     size.addEventListener('click', reveal_size_children);
@@ -237,6 +247,8 @@ function setClickReveals() {
     begin.addEventListener('click', run);
     breadthFirst.addEventListener('click', setBfs);
     depthFirst.addEventListener('click', setDfs);
+    resetButton.addEventListener('click', reset);
+    resetAllButton.addEventListener('click', resetAll);
 }
 
 function setBfs() {
