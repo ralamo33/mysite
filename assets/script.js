@@ -47,15 +47,15 @@ function bfs() {
 function littleBfs(queue, seen, found_treasure) {
     while (queue.length > 0) {
         next = queue.shift();
-        if (contains(next, seen)) {continue;}
+        if (contains(next.id, seen)) {continue;}
+        seen.push(next.id);
+        visit(next.id);
         if (next.style.backgroundColor == cellStatus.TREASURE) {
             found_treasure++;
             if (found_treasure == treasures) {
                 return true;
             }
         }
-        seen.push(next);
-        visit(next.id);
         neighbors = getNeighbors(next.id);
         for (let i=0; i < neighbors.length; i++) {
             queue.push(grid.children[neighbors[i]]);
@@ -116,8 +116,18 @@ function isVisited(child_index) {
 }
 
 //Visit node of the given child_index
-function visit(child_index) {
-    cell = grid.children[child_index];
+function visit(index) {
+    cell = grid.children[index];
+    set_visible(cell);
+    /*window.setTimeout(function() {
+        set_visible(cell)
+    }
+        
+        , 500);*/
+}
+
+//Set the cell's searched image visible after a certain numbe of miliseconds
+function set_visible(cell) {
     search_image = cell.firstChild;
     search_image.style.visibility = "visible";
 }
