@@ -18,8 +18,8 @@ let algorithm = {
 
 
 let grid = document.getElementById("map");
-let rows = 50;
-let cols = 60;
+let rows = 25;
+let cols = 25;
 let start = 0;
 let treasures = 0;
 //The status we will set a clicked cell onto.
@@ -27,6 +27,7 @@ let cell_status = cellStatus.NORMAL;
 let current_algorithm = algorithm.BFS;
 let visit_counter = 0;
 let visit_function;
+const interval = 50;
 //List of index for treasure spots
 let treasure_spots = [];
 createGrid(rows, cols);
@@ -38,7 +39,7 @@ Algorithm logic.
 */
 function run() {
     path = current_algorithm();
-    pathVisit(path, 500);
+    pathVisit(path, interval);
 }
 
 
