@@ -1,7 +1,7 @@
 //I need to know the cell_index of each cell. So I know its bad code but I will use inner HTML to number them with their cell_index
 
 let cellStatus = {
-    NORMAL: "peru",
+    NORMAL: "white",
     TREASURE: "gold",
     OBSTACLE: "black",
     START: "red"
@@ -11,6 +11,9 @@ let algorithm = {
     BFS: breadthFirstSearch,
     DFS: depthFirstSearch,
     DA: dijsktraAlgorithm,
+    ASTAR: function() {
+        return aStarAlgorithm(true);
+    }
 }
 
 
@@ -36,6 +39,64 @@ function run() {
     pathVisit(path, 500);
 }
 
+
+//Heuristics: Boolean, whether or not heuristics will be used. A lack of heuristics
+//makes this Dijsktra's algorithm.
+function aStarAlgorithm(heuristics) {
+        //list of visited verticies
+        let visited = []
+        //List of Verticies not in visited
+        let missing = getChildrenIndex()
+        //(vertex, distance)
+        let distances = {}
+        let children = grid.children;
+        let treasures_found = 0;
+        distances[start] = 0;
+        //If there is no treasure than this acts as dijkstra
+        if (treasures == 0) {
+            heuristics = false;
+        }
+        while (missing.length > 0) {
+            let current = getMin(distances);
+            if (current == null) {
+                return visited;
+            }
+            visited.push(children[current]);
+            missing.splice(current, 1);
+            //THe problem is children[current]
+            if (children[current].style.backgroundColor == cellStatus.OBSTACLE) {
+                continue;
+            }
+            if (children[current].style.backgroundColor == cellStatus.TREASURE) {
+                treasures_found++;
+                if (treasures_found >= treasures) {
+                    return visited;
+                }
+            }
+            //update distances with current's edges
+            let neighbors = getNeighbors(current);
+            for (let i = 0; i < neighbors.length; i++) {
+                neighbor = neighbors[i];
+                if (contains(visited, children[neighbor])) {continue;}
+                let g = getWeight(current, neighbor);
+                let h = 0;
+                if (heuristics) {
+                    h = euclideanDistance(current, neighbor, current_target);
+                }
+                let weight = g + h;
+                if (neighbor in distances) {
+                    if (distances[neighbor] > weight) {
+                        distances[neighbor] = weight;
+                    }
+                }
+                else {
+                    distances[neighbor] = weight;
+                }
+            }
+        }    
+        return visited;
+}
+
 function dijsktraAlgorithm() {
     //list of visited verticies
     let visited = []
@@ -51,7 +112,7 @@ function dijsktraAlgorithm() {
         if (current == null) {
             return visited;
         }
-        visited.push(current);
+        visited.push(children[current]);
         missing.splice(current, 1);
         //THe problem is children[current]
         if (children[current].style.backgroundColor == cellStatus.OBSTACLE) {
@@ -67,7 +128,7 @@ function dijsktraAlgorithm() {
         let neighbors = getNeighbors(current);
         for (let i = 0; i < neighbors.length; i++) {
             neighbor = neighbors[i];
-            if (contains(visited, neighbor)) {continue;}
+            if (contains(visited, children[neighbor])) {continue;}
             weight = getWeight(current, neighbor);
             if (neighbor in distances) {
                 if (distances[neighbor] > weight) {
@@ -380,6 +441,7 @@ function setClickReveals() {
     let resetButton = document.getElementById("reset");
     let resetAllButton = document.getElementById("reset-all");
     let dijsktra = document.getElementById("da");
+    let aStar = document.getElementById("a-star");
     r.addEventListener('click', reveal_text);
     play.addEventListener('click', reveal_play_children);
     size.addEventListener('click', reveal_size_children);
@@ -396,6 +458,11 @@ function setClickReveals() {
     resetButton.addEventListener('click', reset);
     resetAllButton.addEventListener('click', resetAll);
     dijsktra.addEventListener('click', setDa);
+    aStar.addEventListener('click', setAStar);
+}
+
+function setAStar() {
+    current_algorithm = algorithm.ASTAR;
 }
 
 function setDa() {
