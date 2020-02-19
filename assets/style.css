@@ -1,4 +1,113 @@
 /*
+        <li class="seeker-item" id="run">Run</li>
+        <li class="seeker-item" id="reset">Reset</li>
+        <li class="seeker-item" id="reset-all">Reset All</li>
+        <li class="seeker-item" id="add-row">Add Row</li>
+        <li class="seeker-item" id="add-col">Add Column</li>
+        <li class="seeker-item" id="algorithm">Select Algorithm</li>
+        <li class="seeker-item" id="change">Select Change</li>
+
+*/
+
+
+/*
+Designed for seeker.html
+*/
+:root {
+    --rowNum: 10;
+    --colNum: 10;
+}
+
+#seeker-body {
+    background-color: white;
+    color: black;
+}
+
+#reveal:hover {
+    cursor: pointer;
+}
+
+.hidden-text {
+    display: none;
+    text-align: center;
+}
+
+#map {
+    display: grid;
+    grid-template-rows: repeat(var(--rowNum), auto);
+    grid-template-columns: repeat(var(--colNum), auto);
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+.cell {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+}
+
+.searched-image {
+    margin: auto;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: black;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.seeker-bar {
+    list-style-type: none;
+    margin: auto;
+    overflow: hidden;
+    background-color: antiquewhite;
+    border-width: .1em;
+    border-style: solid;
+    border-color: black;
+    color: red;
+}
+
+.seeker-item {
+    float: left;
+    text-align: center;
+    border-right: solid black;
+    color: black;
+    font-size: 1.7em;
+    width: 24%;    
+}
+
+.seeker-option {
+    z-index: 1;
+    text-align: inherit;
+    font-size: .8em;
+    color: grey;
+    display: none;
+}
+
+.seeker-option:hover {
+    display: inline-block;
+}
+
+.seeker-item:hover {
+    cursor: pointer;
+}
+
+#seeker-title {
+    margin-top: 0px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.intro-text {
+    text-align: center;
+}
+
+.golden {
+    color: yellow;
+    font-weight: bolder;
+}
+
+
+/*
 Designed for header.html
 */
 
@@ -51,16 +160,6 @@ body {
     font-size: 100%
 }
 
-.left-align {
-    margin-left: %10;
-}
-
-.right-align {
-    margin-right: %90;
-}
-
-
-
 
 .project_title {
     font-size: 1.5em;
@@ -71,7 +170,7 @@ body {
     margin: 0;
 }
 
-.content {
+body {
     background-color: #0000A1;
     margin: 0;
 }
@@ -124,12 +223,13 @@ Designed for the About Me page.
     margin-right: auto;
     max-width: 100%;
     max-height: 100%;
-
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
 }
 
 .column {
     float: left;
-    width: 33%;
+    height: auto;
     border: 1px solid black;
 }
 
@@ -140,7 +240,6 @@ Designed for the About Me page.
 .column li {
     list-style-type: circle;
     list-style-image: url('tiny_wolf.jpg');
-    list-style-image-width: 10px;
 }
 
 .row:after {
@@ -161,15 +260,15 @@ Designed for the About Me page.
     display: none;
     font-style: italic;
     color: gold;
+    z-index: 1;
 }
 
 .skill:hover {
-    border-bottom: 1px solid black;
 }
 
 .skill:hover .hidden {
     display: inline;
-    color: gold;
+    color: white;
 }
 
 /*Reveal the text explaining each skill.*/
@@ -244,8 +343,6 @@ Designed for the About Me page.
 
 .bottom_pictures {
     box-sizing: border-box;
-    max_width = 390px;
-    max_height = 390px;
 }
 
 .bottom_picture {
