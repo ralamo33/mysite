@@ -10,6 +10,7 @@ let cellStatus = {
 let algorithm = {
     BFS: breadthFirstSearch,
     DFS: depthFirstSearch,
+    DA: dijsktraAlgorithm,
 }
 
 
@@ -25,6 +26,7 @@ let visit_counter = 0;
 let visit_function;
 createGrid(rows, cols);
 setClickReveals();
+let edges = makeEdges();
 
 /*
 Algorithm logic.
@@ -32,6 +34,92 @@ Algorithm logic.
 function run() {
     path = current_algorithm();
     pathVisit(path, 500);
+}
+
+function dijsktraAlgorithm() {
+    //list of visited verticies
+    let visited = []
+    //List of Verticies not in visited
+    let missing = getChildrenIndex()
+    //(vertex, distance)
+    let distances = {}
+    let children = grid.children;
+    let treasures_found = 0;
+    distances[start] = 0;
+    while (missing.length > 0) {
+        let current = getMin(distances);
+        if (current == null) {
+            return visited;
+        }
+        visited.push(current);
+        missing.splice(current, 1);
+        //THe problem is children[current]
+        if (children[current].style.backgroundColor == cellStatus.OBSTACLE) {
+            continue;
+        }
+        if (children[current].style.backgroundColor == cellStatus.TREASURE) {
+            treasures_found++;
+            if (treasures_found >= treasures) {
+                return visited;
+            }
+        }
+        //update distances with current's edges
+        let neighbors = getNeighbors(current);
+        for (let i = 0; i < neighbors.length; i++) {
+            neighbor = neighbors[i];
+            if (contains(visited, neighbor)) {continue;}
+            weight = getWeight(current, neighbor);
+            if (neighbor in distances) {
+                if (distances[neighbor] > weight) {
+                    distances[neighbor] = weight;
+                }
+            }
+            else {
+                distances[neighbor] = weight;
+            }
+        }
+    }    
+    return visited;
+}
+
+function getWeight(to, from) {
+    let index = edgeEncoding(from, to);
+    let edge = edges[index];
+    return edge.weight;
+}
+
+function edgeEncoding(to, from) {
+    let w = (to + 1) * (from + 1);
+    return w;
+}
+
+//Get the vertex with minimum distance.
+//Distance is a list of tuples (int, int)
+function getMin(distances) {
+    let vertex = null;
+    let min = -1;
+    for (let key in distances) {
+        let value = distances[key];
+        if (min == -1) {
+            min = value;
+            vertex = key;
+        }
+        else if(min > value) {
+            min = value;
+            vertex = key;
+        }
+    }
+    delete distances[vertex];
+    return Number(vertex);
+}
+
+function getChildrenIndex() {
+    children = grid.children;
+    ans = []
+    for (let i = 0; i < children.length; i++) {
+        ans.push(i);
+    }
+    return ans;
 }
 
 function breadthFirstSearch() {
@@ -112,6 +200,7 @@ function nextUnvisited(seen) {
     //ToDo: Throw an error if no cell is returned. There are more treasures than there are treasure tiles.
 }
 
+//Takes in an int index of the target cell, and returns the indicies of the target's neighbors
 function getNeighbors(index) {
     index = Number(index);
     neighbors = []
@@ -129,9 +218,58 @@ function getNeighbors(index) {
     }
     return neighbors;
 }
+
+//Get the neighbors to the cell's bottom and right
+function getHalfNeighbors(index) {
+    index = Number(index);
+    neighbors = []
+    if (((index + 1) % cols) != 0) {
+        neighbors.push(index + 1);
+    }
+    if (index < (rows - 1 ) * cols) {
+        neighbors.push(index + cols);
+    }
+    return neighbors;
+}
+
 /*
 Algorithm logic ends.
 */
+
+function makeEdges() {
+    let seen = []
+    let list = []
+    let edges_length = edgeEncoding(grid.childElementCount, grid.childElementCount);
+    //Placeholders so that i can put edges in unique indecies with edgeEncoding
+    for (let i = 0; i <= edges_length; i++) {
+        list.push(0);
+    }
+    children = grid.children;
+    for (let i = 0; i < children.length; i++) {
+        child = children[i];
+        neighbors = getHalfNeighbors(i)
+        for (let j = 0; j < neighbors.length; j++) {
+            to = neighbors[j];
+            let list_index = edgeEncoding(i, to);
+            list.splice(list_index, 0, makeEdge(i, to, EdgeWeight()));
+        }
+    }
+    return list;
+}
+
+function EdgeWeight() {
+        let rand = Math.random() * 10;
+        let floor = Math.floor((rand) + 1);
+        return floor;
+}
+
+function makeEdge(from, to, weight) {
+    return {
+        from: from,
+        to: to,
+        weight: weight,         
+     }
+}
 
 function reset() {
     clearInterval(visit_function)
@@ -241,6 +379,7 @@ function setClickReveals() {
     let depthFirst = document.getElementById("dfs");
     let resetButton = document.getElementById("reset");
     let resetAllButton = document.getElementById("reset-all");
+    let dijsktra = document.getElementById("da");
     r.addEventListener('click', reveal_text);
     play.addEventListener('click', reveal_play_children);
     size.addEventListener('click', reveal_size_children);
@@ -256,6 +395,11 @@ function setClickReveals() {
     depthFirst.addEventListener('click', setDfs);
     resetButton.addEventListener('click', reset);
     resetAllButton.addEventListener('click', resetAll);
+    dijsktra.addEventListener('click', setDa);
+}
+
+function setDa() {
+    current_algorithm = algorithm.DA;
 }
 
 function setBfs() {
