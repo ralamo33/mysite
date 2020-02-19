@@ -18,8 +18,8 @@ let algorithm = {
 
 
 let grid = document.getElementById("map");
-let rows = 3;
-let cols = 4;
+let rows = 50;
+let cols = 60;
 let start = 0;
 let treasures = 0;
 //The status we will set a clicked cell onto.
@@ -327,7 +327,9 @@ function makeEdges() {
         for (let j = 0; j < neighbors.length; j++) {
             to = neighbors[j];
             let list_index = edgeEncoding(i, to);
-            list.splice(list_index, 0, makeEdge(i, to, EdgeWeight()));
+            if (list[list_index] === 0) {
+                list.splice(list_index, 1, makeEdge(i, to, EdgeWeight()));
+            }
         }
     }
     return list;
@@ -381,8 +383,10 @@ function pathVisit(path, interval) {
 }
 
 function listVisit(path) {
-    set_visible(path[visit_counter]);
-    visit_counter++;
+    if (visit_counter < path.length) {
+        set_visible(path[visit_counter]);
+        visit_counter++;
+    }
 }
 
 //Set the cell's searched image visible after a certain numbe of miliseconds
