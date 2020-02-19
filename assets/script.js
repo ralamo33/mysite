@@ -18,7 +18,7 @@ let algorithm = {
 
 
 let grid = document.getElementById("map");
-let rows = 4;
+let rows = 3;
 let cols = 4;
 let start = 0;
 let treasures = 0;
@@ -27,6 +27,8 @@ let cell_status = cellStatus.NORMAL;
 let current_algorithm = algorithm.BFS;
 let visit_counter = 0;
 let visit_function;
+//List of index for treasure spots
+let treasure_spots = [];
 createGrid(rows, cols);
 setClickReveals();
 let edges = makeEdges();
@@ -56,7 +58,7 @@ function aStarAlgorithm(heuristics) {
         if (treasures == 0) {
             heuristics = false;
         }
-        while (missing.length > 0) {
+        while (visited.length < children.length) {
             let current = getMin(distances);
             if (current == null) {
                 return visited;
@@ -81,7 +83,8 @@ function aStarAlgorithm(heuristics) {
                 let g = getWeight(current, neighbor);
                 let h = 0;
                 if (heuristics) {
-                    h = euclideanDistance(current, neighbor, current_target);
+                    let current_target = treasure_spots[treasures_found];
+                    h = euclideanDistance(neighbor, current_target);
                 }
                 let weight = g + h;
                 if (neighbor in distances) {
@@ -97,6 +100,18 @@ function aStarAlgorithm(heuristics) {
         return visited;
 }
 
+//From and Goal are id integers
+function euclideanDistance(from, goal) {
+    let x1 = (from % cols);
+    let x2 = (goal % cols);
+    let y1 = Math.floor((from) / cols);
+    let y2 = Math.floor((goal)/ cols);
+    let xdis = Math.pow((x1 - x2), 2);
+    let ydis = Math.pow((y1 - y2), 2);
+    let distance = Math.sqrt(xdis + ydis);
+    return distance;
+}
+
 function dijsktraAlgorithm() {
     //list of visited verticies
     let visited = []
@@ -107,7 +122,7 @@ function dijsktraAlgorithm() {
     let children = grid.children;
     let treasures_found = 0;
     distances[start] = 0;
-    while (missing.length > 0) {
+    while (visited.length < children.length) {
         let current = getMin(distances);
         if (current == null) {
             return visited;
@@ -321,7 +336,8 @@ function makeEdges() {
 function EdgeWeight() {
         let rand = Math.random() * 10;
         let floor = Math.floor((rand) + 1);
-        return floor;
+        //return floor;
+        return 1;
 }
 
 function makeEdge(from, to, weight) {
@@ -381,6 +397,10 @@ function setCellStatus(child_index) {
     //If the cell 0 is start and it is changed it will revert back to start. There must be a start.
     if (cell.style.backgroundColor == cellStatus.TREASURE) {
         treasures--;
+        let i = treasure_spots.indexOf(cell);
+        if (i > -1) {
+            treasure_spots.splice(i, 1);
+        }
     }
     else if(cell.style.backgroundColor == cellStatus.START & cell_status != cellStatus.START) {
         if (child_index == 0) {
@@ -407,6 +427,7 @@ function setTreasure(child_index) {
     cell = cell.style.backgroundColor = cellStatus.TREASURE;
     cell.status = cellStatus.TREASURE;
     treasures++;
+    treasure_spots.push(child_index);
 }
 
 function setStart(child_index) {
