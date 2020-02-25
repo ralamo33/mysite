@@ -18,8 +18,8 @@ let algorithm = {
 
 
 let grid = document.getElementById("map");
-let rows = 25;
-let cols = 25;
+let rows = 10;
+let cols = 10;
 let start = 0;
 let treasures = 0;
 //The status we will set a clicked cell onto.

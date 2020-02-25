@@ -27,9 +27,24 @@ Designed for seeker.html
     cursor: pointer;
 }
 
+.hidden-header {
+    display: inline
+}
+
 .hidden-text {
     display: none;
-    text-align: center;
+    text-align: left;
+}
+
+.instruction-text {
+    font-size: 1.3em;
+}
+
+.instruction-header {
+    font-size: 1.2em;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
 }
 
 #map {
@@ -37,19 +52,18 @@ Designed for seeker.html
     grid-template-rows: repeat(var(--rowNum), auto);
     grid-template-columns: repeat(var(--colNum), auto);
     background-color: antiquewhite;
-    padding: 10px;
+    padding: 2%;
+    height: 54vh;
+    width: 96%;
 }
 
 .cell {
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
 }
 
 .searched-image {
     margin: auto;
-    height: 1.3em;
-    width: 1.3em;
     background-color: black;
     z-index: 1;
     visibility: hidden;
@@ -57,22 +71,21 @@ Designed for seeker.html
 
 .seeker-bar {
     list-style-type: none;
-    margin: auto;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     background-color: antiquewhite;
-    border-width: .1em;
-    border-style: solid;
-    border-color: black;
-    color: red;
+    border: .1em solid black;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 .seeker-item {
     float: left;
     text-align: center;
-    border-right: solid black;
+    border-left: solid black;
     color: black;
     font-size: 1.7em;
-    width: 24%;    
 }
 
 .seeker-option {
@@ -81,10 +94,6 @@ Designed for seeker.html
     font-size: .8em;
     color: grey;
     display: none;
-}
-
-.seeker-option:hover {
-    display: inline-block;
 }
 
 .seeker-item:hover {
@@ -97,14 +106,25 @@ Designed for seeker.html
     font-size: xx-large;
 }
 
+#play {
+    border-left: none;
+}
+
 .intro-text {
     text-align: center;
 }
 
 .golden {
-    color: yellow;
+    color: goldenrod;
     font-weight: bolder;
 }
+
+.instruction-list {
+    list-style-type: none;
+    margin: 0;   
+    padding: 0;
+}
+
 
 
 /*
@@ -159,6 +179,15 @@ Designed for the home/personal_project page.
 body {
     font-size: 100%
 }
+
+p {
+    font-size: 1.3em;
+}
+
+a {
+    font-size: 1.3em;
+}
+
 
 
 .project_title {
@@ -218,6 +247,7 @@ body {
 /*
 Designed for the About Me page.
 */
+
 .row {
     margin-left: auto;
     margin-right: auto;
@@ -225,6 +255,14 @@ Designed for the About Me page.
     max-height: 100%;
     display: grid;
     grid-template-columns: 33% 33% 33%;
+}
+
+.row h3 {
+    font-size: 1.8em;
+}
+
+.skill {
+    font-size: 1.5em;
 }
 
 .column {
@@ -259,6 +297,7 @@ Designed for the About Me page.
 .hidden {
     display: none;
     font-style: italic;
+    font-size: .7em;
     color: gold;
     z-index: 1;
 }
@@ -281,10 +320,12 @@ Designed for the About Me page.
 
 .about_me h3 {
     margin: 10px;
+    font-size: 1.8em;
 }
 
 .about_me h4 {
     margin: 20px;
+    font-size: 1.5em;
 }
 
 .about_me p {
@@ -294,6 +335,14 @@ Designed for the About Me page.
 .history_link {
     color: yellow;
     font-style: underline;
+}
+
+.size_one {
+    font-size: 1em;
+}
+
+.size_shrink {
+    font-size: .8em;
 }
 
 .list_header {
