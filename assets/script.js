@@ -392,7 +392,7 @@ function listVisit(path) {
 
 //Set the cell's searched image visible after a certain numbe of miliseconds
 function set_visible(cell) {
-    search_image = cell.firstChild;
+    search_image = cell.children[1];
     search_image.style.visibility = "visible";
 }
 

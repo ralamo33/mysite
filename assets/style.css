@@ -75,7 +75,7 @@ Designed for seeker.html
     z-index: 1;
     height: 25%;
     width: 25%;
-    visibility: visible;
+    visibility: hidden;
     vertical-align: middle;
 }
 
