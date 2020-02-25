@@ -356,7 +356,7 @@ function reset() {
     visit_counter = 0;
     children = grid.children;
     for (let i = 0; i < children.length; i++) {
-        children[i].firstChild.style.visibility = "hidden";
+        children[i].children[1].style.visibility = "hidden";
     }
 }
 
