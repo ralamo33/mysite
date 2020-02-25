@@ -62,11 +62,21 @@ Designed for seeker.html
     border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
+.helper {
+    display: inline-block;
+    vertical-align: middle;
+    max-height: 100%;
+}
+
 .searched-image {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     background-color: black;
     z-index: 1;
-    visibility: hidden;
+    height: 25%;
+    width: 25%;
+    visibility: visible;
+    vertical-align: middle;
 }
 
 .seeker-bar {

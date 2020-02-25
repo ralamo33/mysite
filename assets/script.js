@@ -608,10 +608,13 @@ function addCell(child_index) {
 }
 
 //Add a hidden image that will reveal itself when the given cell is searched.
-function addSearchedImage(cell) {
+function addSearchedImage(cell) {    
     let image = document.createElement("div");
     image.classList.add("searched-image");
-    cell.appendChild(image);
+    let hidden_helper = document.createElement("span");
+    hidden_helper.classList.add("helper");
+    cell.appendChild(hidden_helper);
+    cell.appendChild(image)
 }
 
 //Make a grid-item, to record the state of the grid
