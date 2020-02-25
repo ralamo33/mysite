@@ -18,8 +18,8 @@ let algorithm = {
 
 
 let grid = document.getElementById("map");
-let rows = 25;
-let cols = 25;
+let rows = 10;
+let cols = 10;
 let start = 0;
 let treasures = 0;
 //The status we will set a clicked cell onto.
@@ -392,7 +392,7 @@ function listVisit(path) {
 
 //Set the cell's searched image visible after a certain numbe of miliseconds
 function set_visible(cell) {
-    search_image = cell.firstChild;
+    search_image = cell.children[1];
     search_image.style.visibility = "visible";
 }
 
@@ -608,10 +608,13 @@ function addCell(child_index) {
 }
 
 //Add a hidden image that will reveal itself when the given cell is searched.
-function addSearchedImage(cell) {
+function addSearchedImage(cell) {    
     let image = document.createElement("div");
     image.classList.add("searched-image");
-    cell.appendChild(image);
+    let hidden_helper = document.createElement("span");
+    hidden_helper.classList.add("helper");
+    cell.appendChild(hidden_helper);
+    cell.appendChild(image)
 }
 
 //Make a grid-item, to record the state of the grid

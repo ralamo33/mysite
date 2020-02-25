@@ -3,7 +3,7 @@
 <body class="about_me" id="seeker-body">
     <div class="intro">
         <h3 id="seeker-title">Seeker!</h3>
-        <p class="intro-text">Seeker is a game where you can use different search algorithms to find the <span class="golden">GOLDEN</span> treasure.</p>
+        <p class="intro-text">Seeker is a game where you can use different search algorithms to find the <strong class="golden">GOLDEN</strong> treasure.</p>
         <div class="instructions">
             <p class="intro-text" id="reveal">Click here for instructions.</p>
             <div class="hidden-text">
@@ -11,21 +11,25 @@
                     a search algoirthm to find your treasure!
                     <ul class="instruction-list">
                         <li class="instruction-item">
-                            <h4 class="instruction-header">Run</h4>
-                            <br>
-                            <p class=intro-text>Click run to apply the selected search algorithm on the current treasure map.</p>
-                        </li>
-                        <li class="instruction-item">
-                            <h4 class="instruction-header">Select Algorithm</h4>
-                            <br>
-                            <p class=intro-text>Choose an algorithm from the dropdown menu to select a search algorithm to use. Then hit run to find a path!</p>
-                        </li>
-                        <li class="instruction-item">
-                            <h4 class="instruction-header">Select Change</h4>
-                            <br>
-                            <p class=intro-text>Choose how you want to edit the map. Select the type of object you want to create and
-                                each mouse click on a tile will turn the tile to the selected object.
+                            <p class="instruction-text"><strong class="instruction-header">Play:</strong>
+                            Run applies the selected search algorithm on the current treasure map.
+                                Reset turns all the visited tiles to unvisited.
+                                Reset All undos all changes made to the map.
                             </p>
+                        </li>
+                        <li class="instruction-item">
+                            <p class="instruction-text"><strong class="instruction-header">Size:</strong>
+                                Use this to either add columns or add rows to the map.
+                                </p>
+                        </li>                        
+                        <li class="instruction-item">
+                            <p class="instruction-text"><strong class="instruction-header">Select Algorithm:</strong>
+                                Choose an algorithm from the dropdown menu to select a search algorithm to use. Then hit Run to find a path!                                </p>
+                        </li>
+                        <li class="instruction-item">
+                            <p class="instruction-text"><strong class="instruction-header">Select Change:</strong>
+                                Choose how you want to edit the map. Once you select a change, any tile you click will become a tile of your 
+                                chosen type. If you select Obstacle, any tile you click will become an Obstacle tile.
                         </li>
                     </ul>
                 </p>
