@@ -37,11 +37,11 @@ Designed for seeker.html
 }
 
 .instruction-text {
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 .instruction-header {
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-transform: capitalize;
     margin: 0;
     padding: 0;
@@ -95,7 +95,7 @@ Designed for seeker.html
     text-align: center;
     border-left: solid black;
     color: black;
-    font-size: 1.7em;
+    font-size: 1.6em;
 }
 
 .seeker-option {
@@ -191,17 +191,17 @@ body {
 }
 
 p {
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 a {
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 
 
 .project_title {
-    font-size: 1.5em;
+    font-size: 1.4em;
     text-align: center;
     color: white;
     background: #0000A1;
@@ -268,11 +268,11 @@ Designed for the About Me page.
 }
 
 .row h3 {
-    font-size: 1.8em;
+    font-size: 1.7em;
 }
 
 .skill {
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 .column {
@@ -330,12 +330,12 @@ Designed for the About Me page.
 
 .about_me h3 {
     margin: 10px;
-    font-size: 1.8em;
+    font-size: 1.7em;
 }
 
 .about_me h4 {
     margin: 20px;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 .about_me p {
@@ -348,7 +348,7 @@ Designed for the About Me page.
 }
 
 .size_one {
-    font-size: 1em;
+    font-size: .9em;
 }
 
 .size_shrink {
@@ -363,7 +363,7 @@ Designed for the About Me page.
 .about_me h2 {
     text-align: center;
     font-style: "Times New Roman";
-    font-size: 1.5em;
+    font-size: 1.4em;
  }
 
 .book_list {
