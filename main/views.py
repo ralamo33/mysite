@@ -20,6 +20,10 @@ def seeker(request):
     return render(request,
      template_name="main/seeker.html")
 
+def gameOfLife(request):
+    return render(request,
+    template_name="main/gameOfLife.html")
+
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)

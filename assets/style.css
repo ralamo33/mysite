@@ -409,3 +409,22 @@ Designed for the About Me page.
     width: 33%;
     height: 33%;
 }
+
+#grid {
+    width: 1000px;
+    height: 500px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.grid-element {
+    background-color: gray;
+    margin: .1%;
+    width: 2%;
+    height: 1%;
+    float: left;
+}
+
+.active {
+    background-color: yellow;
+}

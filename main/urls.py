@@ -24,4 +24,5 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("aboutme/", views.aboutme, name="aboutme"),
     path("seeker/", views.seeker, name="seeker"),
+    path("gameOfLife/", views.gameOfLife, name="gameOfLife")
 ]
